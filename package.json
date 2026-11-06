@@ -1,0 +1,100 @@
+{
+  "name": "sip-flower",
+  "productName": "Sip Flower",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A daily achievement diary in your menu bar: each line waters a watercolour lotus, and full grown it is planted in your garden.",
+  "main": "out/main/index.js",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "start": "electron-vite preview",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "package": "electron-vite build && electron-builder --mac",
+    "capture": "node scripts/run-mode.mjs capture",
+    "export-placeholders": "node scripts/run-mode.mjs export",
+    "selftest": "node scripts/run-mode.mjs selftest",
+    "padshot": "node scripts/run-mode.mjs padshot",
+    "icon": "node scripts/icon.mjs",
+    "web": "vite",
+    "garden-shot": "node scripts/garden-shot.mjs",
+    "glass-shot": "node scripts/glass-shot.mjs",
+    "autorig": "blender --background --python scripts/autorig.py --"
+  },
+  "dependencies": {
+    "@fontsource-variable/inter": "^5.3.0",
+    "@react-three/fiber": "^9.8.2",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/three": "^0.186.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "electron": "^45.0.0",
+    "electron-builder": "^26.18.0",
+    "electron-vite": "^6.0.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
+  },
+  "build": {
+    "appId": "studio.sumin.sipflower",
+    "productName": "Sip Flower",
+    "files": [
+      "out/**",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "resources",
+        "to": ".",
+        "filter": [
+          "**/*",
+          "!flowers/_placeholder/**"
+        ]
+      }
+    ],
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "arm64"
+          ]
+        }
+      ],
+      "category": "public.app-category.lifestyle",
+      "extendInfo": {
+        "NSMicrophoneUsageDescription": "Sip Flower records the voice notes you put on your day.",
+        "NSScreenCaptureUsageDescription": "Sip Flower draws the desktop behind the pad through its glass. Nothing is recorded or saved."
+      },
+      "icon": "build/icon.icns",
+      "identity": "-",
+      "hardenedRuntime": false
+    },
+    "dmg": {
+      "title": "Sip Flower",
+      "contents": [
+        {
+          "x": 150,
+          "y": 190
+        },
+        {
+          "x": 390,
+          "y": 190,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "directories": {
+      "buildResources": "build",
+      "output": "dist"
+    }
+  }
+}

@@ -1,0 +1,716 @@
+html,
+body,
+#root {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #fff;
+  user-select: none;
+}
+
+canvas {
+  display: block;
+  touch-action: none;
+}
+
+/* The window's title bar is hidden (main/garden.ts): the traffic lights sit
+   over the garden, and this strip along the top moves the window. */
+.garden-drag {
+  position: fixed;
+  z-index: 20;
+  inset: 0 0 auto;
+  height: 28px;
+  -webkit-app-region: drag;
+}
+
+/* An empty garden says what grows here: the tune panel's panel and type. */
+.garden-empty {
+  position: fixed;
+  z-index: 5;
+  top: 64px;
+  left: 50%;
+  width: 280px;
+  box-sizing: border-box;
+  padding: 16px 18px;
+  translate: -50% 0;
+  font: 400 12px/16px -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', system-ui, sans-serif;
+  color: var(--panel-text);
+  -webkit-font-smoothing: antialiased;
+  text-align: center;
+  pointer-events: none;
+  animation: garden-empty-in 220ms var(--ease-out, cubic-bezier(0.23, 1, 0.32, 1)) 400ms backwards;
+}
+
+.garden-empty h2 {
+  margin: 0 0 4px;
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 600;
+}
+
+.garden-empty p {
+  margin: 0;
+  color: var(--panel-label);
+}
+
+.is-capture .garden-empty {
+  animation: none;
+}
+
+@keyframes garden-empty-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .garden-empty {
+    animation-name: garden-empty-fade;
+  }
+}
+
+@keyframes garden-empty-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+canvas.is-over {
+  cursor: grab;
+}
+
+canvas.is-dragging,
+canvas.is-panning {
+  cursor: grabbing;
+}
+
+/* The callout: the Figma sheet (ui/sheet.css), on a white leader line from
+   a ring beside the card to a dot on the bloom, two brackets over it. */
+.leader {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+  /* A breath of shade round the white line, so it reads on pale grass too. */
+  filter: drop-shadow(0 0 1.5px rgba(30, 50, 36, 0.45));
+}
+
+.leader-dot {
+  fill: #fff;
+  stroke: #dbdbdb;
+  stroke-width: 1px;
+}
+
+.leader-brackets {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.5px;
+  stroke-linecap: square;
+}
+
+.label {
+  position: fixed;
+  /* Below the drag strip the hidden title bar leaves. */
+  top: 36px;
+  right: 24px;
+  user-select: text;
+  /* Grows in once the line has reached it, and leaves quicker than it came. */
+  transform-origin: 0 0;
+  opacity: 0;
+  transform: translateY(6px) scale(0.97);
+  pointer-events: none;
+  transition:
+    opacity 150ms var(--sheet-ease),
+    transform 150ms var(--sheet-ease);
+}
+
+.label[data-shown] {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+  transition-duration: 220ms;
+}
+
+/* A day a page: the paper scrolls one day at a time. */
+.scrap {
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+}
+
+.scrap::-webkit-scrollbar {
+  display: none;
+}
+
+.scrap-page {
+  position: relative;
+  height: 100%;
+  scroll-snap-align: start;
+}
+
+.scrap-none {
+  margin: 0;
+  padding: 21px 13px;
+  font-size: 14px;
+  letter-spacing: -1px;
+  color: var(--soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .label,
+  .label[data-shown] {
+    transform: none;
+    transition: opacity 150ms ease;
+  }
+}
+
+.tune {
+  position: fixed;
+  z-index: 10;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font: 500 12px/16px -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', system-ui, sans-serif;
+  color: var(--panel-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* The panel is the one .panel (ui/panel.css); the pill is only rounder. */
+.tune-bar {
+  --panel-radius: 999px;
+}
+
+.tune {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* Grows out of the toolbar under it, and goes back faster than it came. */
+.tune-panel {
+  width: min(460px, calc(100vw - 32px));
+  /* Fits the garden window with Fine tune open: it scrolls, its header stays on screen. */
+  max-height: calc(100vh - 20px - 42px - 10px - 16px);
+  overflow-y: auto;
+  scrollbar-width: none;
+  padding: 14px 16px 12px;
+  box-sizing: border-box;
+  transform-origin: 50% 100%;
+  animation: tune-in 220ms var(--ease-out);
+}
+
+.tune-panel[data-leaving] {
+  animation: tune-out 150ms var(--ease-out) forwards;
+  pointer-events: none;
+}
+
+@keyframes tune-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.97);
+  }
+}
+
+@keyframes tune-out {
+  to {
+    opacity: 0;
+    transform: translateY(6px) scale(0.97);
+  }
+}
+
+/* The drawer opens at once (animating its height would re-lay out and
+   re-blur the panel every frame); its groups then settle in one after
+   another, moving only by transform and opacity. Closing is instant. */
+.tune-drawer {
+  display: none;
+}
+
+.tune-drawer[data-open] {
+  display: block;
+}
+
+.tune-drawer[data-open] .tune-group {
+  animation: tune-group 220ms var(--ease-out) backwards;
+  animation-delay: calc(var(--i) * 30ms);
+}
+
+@keyframes tune-group {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
+
+.tune-spin[data-spun] {
+  display: grid;
+  animation: tune-spin 420ms var(--ease-out);
+}
+
+@keyframes tune-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.tune-panel header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.tune-panel h2 {
+  margin: 0;
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 600;
+}
+
+.tune button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.tune-x {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  opacity: 0.7;
+  transition:
+    opacity 150ms ease,
+    background-color 150ms ease,
+    transform 120ms var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .tune-x:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.12);
+  }
+}
+
+.tune-x:active {
+  transform: scale(0.94);
+}
+
+.tune-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.tune-card {
+  padding: 0 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tune-card + .tune-card {
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.tune-card .dithered {
+  max-width: 100%;
+}
+
+.tune-card:first-child {
+  padding-left: 0;
+}
+
+.tune-card:last-child {
+  padding-right: 0;
+}
+
+.tune-card h3 {
+  align-self: flex-start;
+  margin: 0 0 8px;
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 400;
+  color: var(--panel-label);
+}
+
+.dithered {
+  display: block;
+  image-rendering: pixelated;
+}
+
+.tune-step {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 12px;
+}
+
+.tune-step span {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  /* Slides in from the side you pressed, a touch of blur bridging old and new. */
+  animation: tune-name 240ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.tune-step span[data-from='left'] {
+  --from: -10px;
+}
+
+@keyframes tune-name {
+  from {
+    opacity: 0;
+    filter: blur(3px);
+    transform: translateX(var(--from, 10px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tune-step span {
+    animation-name: tune-fade;
+  }
+
+  @keyframes tune-fade {
+    from {
+      opacity: 0;
+    }
+  }
+}
+
+.tune-step button {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: rgb(255 255 255 / 0.7);
+  transition: background 150ms, color 150ms, transform 120ms;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .tune-step button:hover {
+    background: rgba(255, 255, 255, 0.14);
+    color: var(--panel-text);
+  }
+}
+
+.tune-step button:active {
+  transform: scale(0.94);
+}
+
+/* A toggle row under each stepper, as in the reference. */
+.tune-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-self: stretch;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--panel-rule);
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 400;
+  color: var(--panel-text);
+  cursor: pointer;
+}
+
+.tune-toggle input {
+  appearance: none;
+  position: relative;
+  flex: none;
+  width: 26px;
+  height: 15px;
+  margin: 0;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.18);
+  box-shadow: inset 0 0 0 1px var(--panel-rule);
+  cursor: pointer;
+  transition: background-color 150ms ease;
+}
+
+.tune-toggle input::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.35);
+  transition: transform 200ms var(--ease-out);
+}
+
+.tune-toggle input:checked {
+  background: rgb(255 255 255 / 0.5);
+}
+
+.tune-toggle input:checked::after {
+  transform: translateX(11px);
+}
+
+/* The caption, and Fine tune, along the bottom. */
+.tune-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.tune-foot p {
+  margin: 0;
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 400;
+  color: var(--panel-label);
+}
+
+.tune-more {
+  display: flex !important;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.tune-more:hover {
+  color: var(--panel-text) !important;
+}
+
+.tune-more svg {
+  transform: rotate(90deg);
+  transition: transform 240ms var(--ease-out);
+}
+
+.tune-more[aria-expanded='true'] svg {
+  transform: rotate(-90deg);
+}
+
+.tune-groups {
+  padding-top: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 20px;
+}
+
+.tune-group h3 {
+  margin: 0 0 4px;
+  font-size: 11px;
+  font-weight: 500;
+  color: rgb(255 255 255 / 0.55);
+}
+
+.tune label {
+  display: block;
+  padding: 3px 0;
+}
+
+.tune label span {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: rgb(255 255 255 / 0.92);
+}
+
+.tune b {
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  color: rgb(255 255 255 / 0.6);
+}
+
+.tune input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 16px;
+  margin: 2px 0 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.tune input[type='range']::-webkit-slider-runnable-track {
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(to right, rgb(255 255 255 / 0.85) var(--fill), rgb(255 255 255 / 0.2) var(--fill));
+}
+
+.tune input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 13px;
+  height: 13px;
+  margin-top: -5px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(20, 40, 25, 0.35);
+  transition: transform 150ms;
+}
+
+.tune input[type='range']:active::-webkit-slider-thumb {
+  transform: scale(1.15);
+}
+
+.tune-bar {
+  display: flex;
+  gap: 2px;
+  padding: 4px;
+}
+
+.tune-bar button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: rgb(255 255 255 / 0.82);
+  transition:
+    background-color 150ms ease,
+    color 150ms ease,
+    transform 120ms var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .tune-bar button:hover {
+    background-color: rgb(255 255 255 / 0.12);
+    color: var(--panel-text);
+  }
+}
+
+.tune-bar button:active {
+  transform: scale(0.92);
+}
+
+/* On: a lighter disc, as in the reference's pill. */
+.tune-bar button.on {
+  background-color: rgb(255 255 255 / 0.2);
+  color: var(--panel-text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tune-panel,
+  .tune-panel[data-leaving] {
+    animation-name: tune-fade-in;
+  }
+
+  .tune-panel[data-leaving] {
+    animation-name: tune-fade-out;
+  }
+
+  .tune-drawer[data-open] .tune-group {
+    animation-name: tune-fade-in;
+  }
+
+  .tune-spin[data-spun] {
+    animation: none;
+  }
+
+  @keyframes tune-fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+
+  @keyframes tune-fade-out {
+    to {
+      opacity: 0;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .tune-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .tune-groups {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* The glass group's tools: keep the pad open, copy the numbers, reset. */
+.tune-glass-tools {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 2px 0 6px;
+}
+
+.tune-glass-tools .tune-toggle {
+  flex: 1;
+}
+
+.tune-chip {
+  height: 22px;
+  padding: 0 9px;
+  border-radius: 999px;
+  font-size: 11px !important;
+  color: rgb(255 255 255 / 0.8) !important;
+  box-shadow: inset 0 0 0 1px var(--panel-rule);
+  transition:
+    background-color 150ms ease,
+    transform 120ms var(--ease-out);
+}
+
+.tune-chip:hover {
+  background: var(--panel-hover);
+  color: #fff !important;
+}
+
+.tune-chip:active {
+  transform: scale(0.95);
+}
+
+/* The loader (Loader.tsx): an ASCII sprout on the garden's paper white, over
+   everything until the garden is ready; it fades out slowly. */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 14px;
+  background: #fbfcf9;
+  color: #3f6e52;
+  opacity: 1;
+  transition: opacity 600ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.loader:not([data-shown]) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loader pre {
+  margin: 0;
+  font: 500 17px/18px ui-monospace, 'SF Mono', Menlo, monospace;
+  letter-spacing: 1px;
+}
+
+.loader p {
+  margin: 0;
+  white-space: nowrap;
+  width: 22ch;
+  font: 400 11px/14px ui-monospace, 'SF Mono', Menlo, monospace;
+  letter-spacing: 0.5px;
+  color: rgb(63 110 82 / 0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader {
+    transition: opacity 200ms ease;
+  }
+}

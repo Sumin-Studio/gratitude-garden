@@ -1,0 +1,22 @@
+reference/
+node_modules/
+.env*
+out/
+dist/
+.DS_Store
+.claude/screens/
+*.log
+.claude/screens/
+.claude/userdata*/
+.claude/*.log
+# Blender working files for the flowers (big binaries)
+art/*.blend1
+.claude/rigtest/
+.claude/figma/
+.claude/state-*.json
+art/
+# The scan video encoder, built from scripts/mp4enc.swift
+.claude/bin/
+
+# Demo diary content (personal photos and words), built by scripts/demo-diary.mts
+.claude/demo/

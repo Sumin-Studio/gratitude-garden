@@ -1,0 +1,153 @@
+/* The pad: one sheet (ui/sheet.css, from Simon's Figma). The paper card
+   holds the day's words from its top and the pictures anywhere over them. */
+
+:root {
+  /* The ink, faint and rule colours are the board's (board/board.css), shared
+     with the garden's scrapbook. */
+  --gut: 18px;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  /* The window is clear round the sheet (main/pad.ts MARGIN). */
+  background: transparent;
+  color: #fff;
+  font: 400 12px/16px var(--sheet-font);
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+  user-select: none;
+}
+
+h1,
+h2 {
+  font: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+#root {
+  padding: 18px;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+}
+
+button {
+  cursor: default;
+}
+
+:focus-visible {
+  outline: 2px solid rgb(var(--ink) / 0.7);
+  outline-offset: 1px;
+}
+
+.pad {
+  --ease-out: var(--sheet-ease);
+}
+
+/* No header on the pad (Simon): the paper sits 6 px from the top, as from
+   the sides, and everything below moves up with it. */
+.pad.sheet {
+  --sheet-top: 6px;
+  --count-top: 258px;
+  --foot-top: 310px;
+}
+
+/* Submitted: read-only, a touch quieter. */
+.pad-card .board {
+  transition: opacity 220ms var(--sheet-ease);
+}
+
+.pad-card[data-state='locked'] .board {
+  opacity: 0.75;
+}
+
+/* The words: typed straight onto the paper from its top, growing down;
+   past the paper's foot they scroll. */
+.pad-words {
+  height: auto;
+  min-height: 34px;
+  max-height: 248px;
+  field-sizing: content;
+  resize: none;
+  overflow-y: auto;
+  scrollbar-width: none;
+  background: none;
+  border: 0;
+  outline: 0;
+  caret-color: rgb(2 2 2 / 0.75);
+  user-select: text;
+}
+
+.pad-words::placeholder {
+  color: var(--faint);
+}
+
+/* Submitted: the window into the garden, low on the paper, under the words
+   and prints, brushed in at its edges (ui/brush-mask.svg). Fades in. */
+.pad-window {
+  position: absolute;
+  left: -6px;
+  right: -6px;
+  bottom: -4px;
+  height: 66%;
+  pointer-events: none;
+  -webkit-mask: var(--brush) center / 100% 100% no-repeat;
+  mask: var(--brush) center / 100% 100% no-repeat;
+  animation: pad-window 600ms var(--sheet-ease) both;
+}
+
+.pad-window img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes pad-window {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pad-window {
+    animation: none;
+  }
+}
+
+/* Add a picture: the pill on the paper's corner. */
+.pad-add {
+  color: rgb(2 2 2 / 0.78);
+}
+
+.pad-add:hover:enabled {
+  background: #fff;
+  color: #000;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pad-card .board {
+    transition: none;
+  }
+}

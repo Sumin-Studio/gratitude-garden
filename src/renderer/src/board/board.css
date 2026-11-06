@@ -1,0 +1,331 @@
+/* A day's board (Board.tsx) and its voice player: on the pad, and in the
+   garden's callout. White ink on the one dark panel (ui/panel.css). */
+
+:root {
+  --ink: 255 255 255;
+  /* On a solid fill of ink: the panel's own colour. */
+  --on-solid: rgb(var(--panel));
+  --text: var(--panel-text);
+  --soft: var(--panel-label);
+  --faint: var(--panel-faint);
+  --rule: var(--panel-rule);
+  --hover: var(--panel-hover);
+  --ease-out: var(--panel-ease);
+}
+
+/* ---- The board ---- */
+
+.board {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  touch-action: none;
+  cursor: default;
+}
+
+.board[data-tool='text'] {
+  cursor: text;
+}
+
+.board[data-tool='draw'] {
+  cursor: crosshair;
+}
+
+.board[data-panning] {
+  cursor: grabbing;
+}
+
+.board-layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
+}
+
+.board-text {
+  position: absolute;
+  width: max-content;
+  min-width: 40px;
+  max-width: 300px;
+  padding: 4px;
+  font-size: 15px;
+  line-height: 21px;
+  color: var(--text);
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  user-select: none;
+}
+
+textarea.board-text {
+  field-sizing: content;
+  min-height: 29px;
+  resize: none;
+  background: rgb(var(--ink) / 0.06);
+  border-radius: 6px;
+  caret-color: rgb(var(--ink));
+  user-select: text;
+}
+
+textarea.board-text::placeholder {
+  color: var(--faint);
+}
+
+.board-ink {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.board-ink path {
+  fill: none;
+  stroke: rgb(var(--ink));
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  /* A stroke is picked by its line, not its box. */
+  pointer-events: stroke;
+}
+
+.board-ink.is-live path {
+  pointer-events: none;
+}
+
+/* Ink is hard to hit with 2 px: a wider invisible line takes the click. */
+.board[data-tool='select'] .board-ink:not(.is-live) path {
+  stroke-width: 2px;
+}
+
+.board-media {
+  position: absolute;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 0.4),
+    0 10px 26px -10px rgb(0 0 0 / 0.45);
+}
+
+.board-media img,
+.board-media video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.board-media video {
+  pointer-events: auto;
+}
+
+.board-voice {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  width: 232px;
+  height: 44px;
+  padding: 0 6px 0 8px;
+  border-radius: 22px;
+  background: rgb(var(--ink) / 0.12);
+  box-shadow:
+    inset 0 0 0 1px rgb(var(--ink) / 0.16),
+    inset 0 1px 0 rgb(var(--ink) / 0.14);
+}
+
+.board-voice .player {
+  flex: 1;
+  min-width: 0;
+}
+
+.board-voice .player.is-compact .player-wave {
+  flex: 1;
+  width: auto;
+}
+
+.board-voice .player.is-compact {
+  margin-right: 4px;
+}
+
+.board-voice .player.is-compact .player-toggle {
+  width: 28px;
+  height: 28px;
+}
+
+.board-media {
+  overflow: visible;
+}
+
+.board-media > img,
+.board-media > video {
+  border-radius: inherit;
+}
+
+/* Turn a picture: a dot on a short stem above it. */
+.board-turn {
+  position: absolute;
+  left: 50%;
+  top: -30px;
+  width: 14px;
+  height: 14px;
+  margin-left: -7px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.35);
+  cursor: grab;
+}
+
+.board-turn::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 14px;
+  width: 2px;
+  height: 16px;
+  background: rgb(var(--ink) / 0.45);
+}
+
+.board-sel {
+  transform-origin: center;
+  position: absolute;
+  border-radius: 9px;
+  box-shadow: 0 0 0 calc(1.5px / var(--k)) rgb(255 255 255 / 0.75);
+  pointer-events: none;
+}
+
+.board-del {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgb(var(--ink) / 0.92);
+  color: var(--on-solid);
+  transform: translate(100%, -100%) scale(calc(1 / var(--k)));
+  pointer-events: auto;
+  transition: background-color 150ms ease;
+}
+
+.board-del svg {
+  width: 12px;
+  height: 12px;
+}
+
+.board-handle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  margin: -6px;
+  border-radius: 3px;
+  background: #fff;
+  box-shadow:
+    0 0 0 1px rgb(0 0 0 / 0.18),
+    0 1px 4px rgb(0 0 0 / 0.3);
+}
+
+.board-handle.is-nw {
+  left: 0;
+  top: 0;
+  cursor: nwse-resize;
+}
+
+.board-handle.is-ne {
+  right: 0;
+  top: 0;
+  margin-right: -6px;
+  cursor: nesw-resize;
+}
+
+.board-handle.is-sw {
+  left: 0;
+  bottom: 0;
+  margin-bottom: -6px;
+  cursor: nesw-resize;
+}
+
+.board-handle.is-se {
+  right: 0;
+  bottom: 0;
+  margin: 0 -6px -6px 0;
+  cursor: nwse-resize;
+}
+
+/* ---- The tiny player ---- */
+
+.player {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-variant-numeric: tabular-nums;
+}
+
+.player-toggle {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgb(var(--ink) / 0.9);
+  color: var(--on-solid);
+  transition:
+    background-color 150ms ease,
+    transform 120ms var(--ease-out);
+}
+
+.player-toggle:hover:enabled {
+  background: rgb(var(--ink));
+}
+
+.player-toggle:active:enabled {
+  transform: scale(0.94);
+}
+
+.player-toggle:disabled {
+  background: rgb(var(--ink) / 0.22);
+  color: rgb(var(--ink) / 0.6);
+}
+
+.player-time {
+  color: var(--soft);
+  white-space: nowrap;
+}
+
+.player-wave {
+  flex: 1;
+  min-width: 48px;
+}
+
+.sheet-voice .player {
+  flex: 1;
+  min-width: 0;
+}
+
+.player.is-compact {
+  gap: 8px;
+  margin-right: 10px;
+}
+
+.player.is-compact .player-wave {
+  flex: none;
+  width: 72px;
+}
+
+.player.is-compact .player-toggle {
+  width: 22px;
+  height: 22px;
+}
+
+
+/* A page (Board's `page`): only the items take the pointer; the paper and
+   the day's words under them get the rest. */
+.board[data-page] {
+  pointer-events: none;
+}
+
+.board[data-page] [data-item] {
+  pointer-events: auto;
+}

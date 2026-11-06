@@ -1,0 +1,298 @@
+@import '@fontsource-variable/inter';
+
+/* The sheet, from Simon's Figma (Sip Flower UI, frame 27:161): a grey glass
+   panel, 32 px corners, the date small and white across the top, a white
+   paper card holding the day, and glass pill buttons along the bottom. The
+   pad (the day canvas) and the garden's callout are both this; only the
+   panel's tint differs (grey over the desktop, a light smoke over the garden).
+
+   Every panel and pill carries Figma's Glass effect (refraction 0.8, depth 20,
+   light at -45° with intensity 0.8, dispersion 0.5; frost 0 on the panels, 4
+   on the pills). CSS can't bend what's behind, so the glass is drawn the way
+   Figma's render reads, measured off its 3x export:
+   - a thin bright rim just inside the edge (the light catching it),
+   - the light side (top right) lifted, the far side a touch darker,
+   - the pills' white inner shadow along the top (0 4 4, white),
+   - soft drop shadows (0 1 13.5 -3 at 25 %) under the pills.
+   No frost on the panels (Figma's is 0). Over the garden the glass is real:
+   the garden draws it under the callout (ui/lens.ts). */
+
+:root {
+  --sheet-font: 'Inter Variable', 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --sheet-ease: cubic-bezier(0.23, 1, 0.32, 1);
+  /* The glass light: from the top right (Figma's -45°). */
+  --glass-light: 225deg;
+}
+
+.sheet {
+  /* The glass dials (ui/glass.ts, Fine tune → Glass), with their defaults. */
+  --rim: var(--glass-rim, 2);
+  --glow: var(--glass-glow, 2);
+  --sheen: var(--glass-sheen, 0.4);
+  --sheet-bg: rgb(175 175 175 / var(--glass-pad-tint, 0.62));
+  --paper-bg: rgb(255 255 255 / var(--glass-pad-paper, 0.86));
+  --paper-shadow: 0 0 6.6px 5px rgb(0 0 0 / 0.1);
+  --paper-h: 296px;
+  --sheet-top: 29px;
+  --date-top: 8px;
+  --count-top: 281px;
+  --foot-top: 333px;
+  position: relative;
+  width: 331px;
+  padding: var(--sheet-top) 6px 51px;
+  border: 1px solid rgb(255 255 255 / 0.08);
+  border-radius: 32px;
+  /* A faint sheen across the glass from the light (top right). */
+  background:
+    linear-gradient(var(--glass-light), rgb(255 255 255 / var(--sheen)), rgb(255 255 255 / 0) 42%, rgb(255 255 255 / 0) 72%, rgb(255 255 255 / calc(var(--sheen) * 0.4))),
+    var(--sheet-bg);
+  overflow: clip;
+  color: #fff;
+  font: 400 12px/16px var(--sheet-font);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* The garden page has no reset: without this the sheet came out 14 px wider
+   than its paper, which sat off centre. */
+.sheet,
+.sheet * {
+  box-sizing: border-box;
+}
+
+/* The glass rim: a 1 px ring lit from the top right, fainter on the far
+   side, over everything in the sheet. */
+.sheet::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  border-radius: 31px;
+  padding: 1px;
+  background: linear-gradient(
+    var(--glass-light),
+    rgb(255 255 255 / calc(0.55 * var(--rim))),
+    rgb(255 255 255 / calc(0.1 * var(--rim))) 32%,
+    rgb(255 255 255 / calc(0.06 * var(--rim))) 68%,
+    rgb(255 255 255 / calc(0.3 * var(--rim)))
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box exclude,
+    linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box exclude,
+    linear-gradient(#000 0 0);
+  pointer-events: none;
+}
+
+/* The depth (20): no hard band, just a soft glow inside the edge, stronger
+   on the light side (top right), and a breath of shade on the far side. */
+.sheet {
+  --depth:
+    inset 0 0 0 2px rgb(255 255 255 / calc(0.05 * var(--rim))),
+    inset -8px 8px 20px -12px rgb(255 255 255 / calc(0.32 * var(--glow))),
+    inset 0 0 20px rgb(255 255 255 / calc(0.06 * var(--glow))),
+    inset 8px -8px 20px -14px rgb(0 0 0 / calc(0.06 * var(--glow)));
+  box-shadow: var(--depth);
+}
+
+/* Over the garden: a light smoke, and the paper's tight dark edge. */
+.sheet.is-smoke {
+  --sheet-bg: rgb(52 49 49 / var(--glass-smoke-tint, 0.22));
+  --paper-bg: rgb(255 255 255 / var(--glass-smoke-paper, 0.79));
+  --paper-shadow: 0 0 8.5px -3px rgb(0 0 0 / var(--glass-paper-shadow, 0)), 0 0 6.6px 5px rgb(0 0 0 / 0.08);
+  --paper-h: 295px;
+  /* No header (Simon, as on the pad): the paper 6 px from the top. */
+  --sheet-top: 6px;
+  --count-top: 260px;
+  --foot-top: 308px;
+  /* The glass under it is the garden's own (Film's lens): the painting
+     blurred 2 px, saturated and lifted, pulled in at the rim with a colour
+     split, a crisp white edge. Here: the volume shadow that gives it body. */
+  box-shadow:
+    var(--depth),
+    0 18px 40px -14px rgb(0 0 0 / 0.32),
+    0 2px 8px rgb(0 0 0 / 0.08);
+}
+
+.sheet-date {
+  position: absolute;
+  left: 19px;
+  top: var(--date-top);
+  width: 239px;
+  margin: 0;
+  font: inherit;
+  line-height: normal;
+  letter-spacing: -1px;
+  color: #fff;
+}
+
+/* The paper: the day, dark ink on near white. Its words from the top
+   (.sheet-words), its pictures anywhere over them. */
+.sheet-paper {
+  /* The board's ink (board/board.css), dark on the paper. */
+  --ink: 2 2 2;
+  --on-solid: #fff;
+  --text: rgb(2 2 2 / 0.6);
+  --soft: rgb(2 2 2 / 0.5);
+  --faint: rgb(2 2 2 / 0.32);
+  --rule: rgb(2 2 2 / 0.1);
+  --hover: rgb(2 2 2 / 0.06);
+  position: relative;
+  z-index: 1;
+  width: 317px;
+  height: var(--paper-h);
+  border-radius: 26px;
+  background: var(--paper-bg);
+  box-shadow: var(--paper-shadow);
+  overflow: clip;
+}
+
+/* The day's words: 14 px, tight, soft black, from the paper's top left. */
+.sheet-words {
+  position: absolute;
+  left: 13px;
+  top: 21px;
+  width: 239px;
+  margin: 0;
+  padding: 0;
+  font: 400 14px/normal var(--sheet-font);
+  letter-spacing: -1px;
+  color: var(--text);
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
+/* Text left on older boards, anywhere: the same face. */
+.sheet-paper .board-text {
+  max-width: 239px;
+  font-size: 14px;
+  line-height: normal;
+  letter-spacing: -1px;
+  color: var(--text);
+}
+
+/* Pictures are prints: a 5 px white border, square corners, a small shadow. */
+.sheet-paper .board-media {
+  box-sizing: border-box;
+  border: 5px solid #fff;
+  border-radius: 0;
+  box-shadow: 0 4px 4px rgb(0 0 0 / 0.25);
+}
+
+.sheet-paper .board-media > img,
+.sheet-paper .board-media > video {
+  border-radius: 0;
+}
+
+.sheet-paper .board-sel {
+  border-radius: 0;
+  box-shadow: 0 0 0 calc(1.5px / var(--k)) rgb(2 2 2 / 0.55);
+}
+
+.sheet-paper .board-voice {
+  background: #fff;
+  box-shadow:
+    0 0 0 1px #e7e7e7,
+    0 4px 4px rgb(0 0 0 / 0.12);
+}
+
+/* ---- Glass pills ---- */
+
+.sheet-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  padding: 0 17px;
+  border: 1px solid #e7e7e7;
+  border-radius: 25px;
+  background: #fff;
+  color: #000;
+  font: 400 12px/16px var(--sheet-font);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  /* Frost 4. */
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+/* The pill on the paper's bottom left. */
+.sheet-count {
+  position: absolute;
+  left: 17px;
+  top: var(--count-top);
+  z-index: 2;
+  min-width: 44px;
+  padding: 0 14px;
+}
+
+.sheet-foot {
+  position: absolute;
+  right: 17px;
+  top: var(--foot-top);
+  z-index: 2;
+  display: flex;
+  gap: 11px;
+}
+
+.sheet-button {
+  transition:
+    transform 160ms var(--sheet-ease),
+    background-color 150ms ease,
+    box-shadow 150ms ease,
+    opacity 150ms ease;
+}
+
+.sheet-button:active:enabled {
+  transform: scale(0.96);
+}
+
+.sheet-button:disabled {
+  opacity: 0.55;
+}
+
+/* Submit, Back: near white glass, the top lit from inside. */
+.sheet-button.is-primary {
+  border-color: #eee;
+  background: rgb(255 255 255 / 0.89);
+  box-shadow:
+    inset 0 4px 4px rgb(255 255 255 / calc(2 * var(--glass-pill-light, 0.34))),
+    0 1px 13.5px -3px rgb(0 0 0 / 0.25);
+}
+
+.sheet-button.is-primary:hover:enabled {
+  background: #fff;
+  box-shadow:
+    inset 0 4px 4px rgb(255 255 255 / calc(2 * var(--glass-pill-light, 0.34))),
+    0 2px 15px -3px rgb(0 0 0 / 0.3);
+}
+
+/* Visit the garden: clear glass. A dark hairline outside, a bright rim just
+   inside it, the top lit (white inner shadow at 50 %), the light side (right)
+   lifted, the far side a shade darker. */
+.sheet-button.is-ghost {
+  border: 0;
+  background: linear-gradient(90deg, rgb(0 0 0 / 0.03), rgb(255 255 255 / 0) 40%, rgb(255 255 255 / 0.04) 78%, rgb(255 255 255 / 0.2));
+  color: #191919;
+  box-shadow:
+    0 0 0 1px rgb(0 0 0 / var(--glass-outline, 0.22)),
+    inset 0 0 0 0.75px rgb(255 255 255 / var(--glass-pill-rim, 0.95)),
+    inset 0 4px 4px rgb(255 255 255 / var(--glass-pill-light, 0.34)),
+    0 1px 13.5px -3px rgb(0 0 0 / 0.25);
+}
+
+.sheet-button.is-ghost:hover:enabled {
+  background-color: rgb(255 255 255 / 0.12);
+}
+
+.sheet :focus-visible {
+  outline: 2px solid rgb(255 255 255 / 0.9);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sheet-button {
+    transition: none;
+  }
+}

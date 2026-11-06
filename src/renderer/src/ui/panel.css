@@ -1,0 +1,39 @@
+/* The one panel, from the pixel-art farm reference (.claude/ref/pixel-art-farm-panel.jpg):
+   dark, smoky, frosted green-black glass, 16 px corners, a thin light edge, a
+   soft shadow, white type. Over the garden it frosts what's behind it (plain
+   CSS backdrop-filter); over the desktop, where CSS can't see behind the
+   window, .is-solid is the same colour nearly opaque. No sheen, no rim lens,
+   no colour fringe. Every surface in the app is this: the pad, the callout,
+   the empty garden's card, the tune panel and its pill. */
+
+:root {
+  --panel: 20 34 26;
+  --panel-a: 0.62;
+  --panel-text: #fff;
+  --panel-label: rgb(255 255 255 / 0.62);
+  --panel-faint: rgb(255 255 255 / 0.42);
+  --panel-rule: rgb(255 255 255 / 0.14);
+  --panel-hover: rgb(255 255 255 / 0.1);
+  --panel-radius: 16px;
+  --panel-shadow: 0 18px 44px -12px rgb(0 0 0 / 0.5), 0 2px 8px rgb(0 0 0 / 0.18);
+  --panel-ease: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.panel {
+  position: relative;
+  border-radius: var(--panel-radius);
+  background: rgb(var(--panel) / var(--panel-a));
+  -webkit-backdrop-filter: blur(22px) saturate(1.3);
+  backdrop-filter: blur(22px) saturate(1.3);
+  box-shadow:
+    inset 0 0 0 1px var(--panel-rule),
+    var(--panel-shadow);
+  color: var(--panel-text);
+}
+
+/* Over the desktop: nothing to frost, so the same dark panel, nearly solid. */
+.panel.is-solid {
+  --panel-a: 0.9;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}

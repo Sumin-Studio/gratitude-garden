@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 300" preserveAspectRatio="none">
+  <!-- The page's window into the garden: a soft shape whose edges are dragged
+       sideways by streaky noise (a dry brush), then feathered. Used as a mask. -->
+  <defs>
+    <filter id="brush" x="-15%" y="-15%" width="130%" height="130%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.11" numOctaves="3" seed="7" result="streaks" />
+      <feDisplacementMap in="SourceGraphic" in2="streaks" scale="58" xChannelSelector="R" yChannelSelector="G" result="dragged" />
+      <feGaussianBlur in="dragged" stdDeviation="6" />
+    </filter>
+  </defs>
+  <rect x="52" y="44" width="336" height="212" rx="70" fill="#fff" filter="url(#brush)" />
+</svg>
