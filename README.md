@@ -46,7 +46,7 @@ In the garden: settings → Fine tune → Demo.
 - **Replay today**: opening the pad after a Submit puts today back as it was, so a take can be repeated.
 - **Lotus every time**: today's seed is always a lotus.
 - **Reset today**: today back as before Submit, now.
-- **Day 1** / **100 days**: a brand-new garden, or a 100-day diary (needs a `demo-100.json` in the app's folder).
+- **Day 1** / **100 days**: a brand-new garden, or a 100-day diary that ships with the app (`src/renderer/public/demo/`). A `demo-100.json` you build yourself, in the app's folder, is used instead.
 
 The switches are saved as `demo.json` in the app's folder. `scripts/demo-diary.mts` builds a pretend diary (and its `demo-100.json`) from a list of days and photos you supply: see the top of the file.
 

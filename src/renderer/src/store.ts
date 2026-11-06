@@ -24,7 +24,8 @@ const mockFiles = new Map<string, string>()
 export function fileSrc(it: Pick<Item, 'kind' | 'file'>): string | null {
   if (!it.file) return null
   if (window.sip) return `${it.kind === 'voice' ? 'sip-audio' : 'sip-media'}://${it.file}`
-  return mockFiles.get(it.file) ?? `/${it.file}`
+  // The 100-day demo's photos ship in public/demo/media.
+  return mockFiles.get(it.file) ?? (it.file.startsWith('demo-') ? `/demo/media/${it.file}` : `/${it.file}`)
 }
 
 // Browser mock of the Electron bridge, so the pad and the garden run in any
@@ -88,14 +89,14 @@ function mockBridge(): SipBridge {
     getDemo: async () => ({ replay: false, lotus: false }),
     setDemo: noop,
     resetToday: () => commit(reopenToday(diary)),
-    // The Demo controls in the browser: day 1 here, the 100 days from
-    // /demo-100.json if the preview serves one.
+    // The Demo controls in the browser: day 1 here, the 100 days that ship in
+    // public/demo.
     demoScene: (scene) => {
       if (scene === 'day1') return commit(initialState(Date.now()))
-      void fetch('/demo-100.json')
+      void fetch('/demo/demo-100.json')
         .then((r) => (r.ok ? r.json() : null))
         .then((raw) => {
-          if (!raw) return console.warn('demo: no /demo-100.json in the preview')
+          if (!raw) return console.warn('demo: no /demo/demo-100.json')
           const s = normalize(raw, Date.now())
           commit({ ...s, today: { date: s.today.date, items: [] } })
         })

@@ -1,0 +1,4974 @@
+{
+  "plant": {
+    "id": "pmw39r3ml",
+    "flower": "iris",
+    "pot": "clay",
+    "name": "Iris",
+    "plantedAt": 1793866424349,
+    "entries": [],
+    "goal": 21,
+    "days": []
+  },
+  "garden": [
+    {
+      "id": "pms532140",
+      "flower": "daisy",
+      "pot": "clay",
+      "name": "Daisy patch",
+      "plantedAt": 1785268980000,
+      "bloomedAt": 1785314345917,
+      "entries": [
+        {
+          "at": 1785314345916,
+          "text": "slept in. no alarms, no plans."
+        },
+        {
+          "at": 1785314345917,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1785247200000,
+          "items": [
+            {
+              "id": "w0",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "slept in. no alarms, no plans."
+            },
+            {
+              "id": "p0-0",
+              "kind": "image",
+              "x": 64,
+              "y": 92,
+              "w": 150,
+              "h": 185,
+              "rot": -7.3,
+              "file": "demo-001.jpg"
+            }
+          ],
+          "submittedAt": 1785314345916,
+          "flower": "pms532140",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pms5u2doc",
+      "flower": "daisy",
+      "pot": "sage",
+      "name": "Daisy patch",
+      "plantedAt": 1785314345916,
+      "bloomedAt": 1785399636583,
+      "entries": [
+        {
+          "at": 1785399636582,
+          "text": "road trip day. sang the whole way there."
+        },
+        {
+          "at": 1785399636583,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1785333600000,
+          "items": [
+            {
+              "id": "w1",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "road trip day. sang the whole way there."
+            },
+            {
+              "id": "p1-0",
+              "kind": "image",
+              "x": 118,
+              "y": 100,
+              "w": 150,
+              "h": 185,
+              "rot": 6.3,
+              "file": "demo-002.jpg"
+            }
+          ],
+          "submittedAt": 1785399636582,
+          "flower": "pms5u2doc",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pms78ugdi",
+      "flower": "lily",
+      "pot": "cream",
+      "name": "Lily of the valley",
+      "plantedAt": 1785399636582,
+      "bloomedAt": 1785488296279,
+      "entries": [
+        {
+          "at": 1785488296278,
+          "text": "cooked something new and it actually worked."
+        },
+        {
+          "at": 1785488296279,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1785420000000,
+          "items": [
+            {
+              "id": "w2",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "cooked something new and it actually worked."
+            },
+            {
+              "id": "p2-0",
+              "kind": "image",
+              "x": 40,
+              "y": 108,
+              "w": 150,
+              "h": 185,
+              "rot": -2.5,
+              "file": "demo-003.jpg"
+            }
+          ],
+          "submittedAt": 1785488296278,
+          "flower": "pms78ugdi",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pms8pmqmu",
+      "flower": "daisy",
+      "pot": "ochre",
+      "name": "Daisy patch",
+      "plantedAt": 1785488296278,
+      "bloomedAt": 1785571417973,
+      "entries": [
+        {
+          "at": 1785571417972,
+          "text": "long call with mum. she sounded happy."
+        },
+        {
+          "at": 1785571417973,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1785506400000,
+          "items": [
+            {
+              "id": "w3",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "long call with mum. she sounded happy."
+            },
+            {
+              "id": "p3-0",
+              "kind": "image",
+              "x": 92,
+              "y": 96,
+              "w": 150,
+              "h": 185,
+              "rot": 4,
+              "file": "demo-001.jpg"
+            }
+          ],
+          "submittedAt": 1785571417972,
+          "flower": "pms8pmqmu",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmsa34bqs",
+      "flower": "daisy",
+      "pot": "celadon",
+      "name": "Daisy patch",
+      "plantedAt": 1785571417972,
+      "bloomedAt": 1785660657254,
+      "entries": [
+        {
+          "at": 1785660657253,
+          "text": "inbox zero, for a day."
+        },
+        {
+          "at": 1785660657254,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1785592800000,
+          "items": [
+            {
+              "id": "w4",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "inbox zero, for a day."
+            },
+            {
+              "id": "p4-0",
+              "kind": "image",
+              "x": 64,
+              "y": 92,
+              "w": 150,
+              "h": 185,
+              "rot": -5.9,
+              "file": "demo-004.jpg"
+            }
+          ],
+          "submittedAt": 1785660657253,
+          "flower": "pmsa34bqs",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmsbk917p",
+      "flower": "chrysanthemum",
+      "pot": "clay",
+      "name": "Chrysanthemum",
+      "plantedAt": 1785660657253,
+      "bloomedAt": 1785745312060,
+      "entries": [
+        {
+          "at": 1785745312059,
+          "text": "finished a book i've been carrying around for weeks."
+        },
+        {
+          "at": 1785745312060,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1785679200000,
+          "items": [
+            {
+              "id": "w5",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "finished a book i've been carrying around for weeks."
+            },
+            {
+              "id": "p5-0",
+              "kind": "image",
+              "x": 118,
+              "y": 100,
+              "w": 150,
+              "h": 185,
+              "rot": 8.4,
+              "file": "demo-005.jpg"
+            }
+          ],
+          "submittedAt": 1785745312059,
+          "flower": "pmsbk917p",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmscynha3",
+      "flower": "nemophila",
+      "pot": "sage",
+      "name": "Baby blue eyes",
+      "plantedAt": 1785745312059,
+      "bloomedAt": 1785832382819,
+      "entries": [
+        {
+          "at": 1785832382817,
+          "text": "bushwalk. found a good rock to sit on."
+        },
+        {
+          "at": 1785832382818,
+          "text": "a picture"
+        },
+        {
+          "at": 1785832382819,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1785765600000,
+          "items": [
+            {
+              "id": "w6",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "bushwalk. found a good rock to sit on."
+            },
+            {
+              "id": "p6-0",
+              "kind": "image",
+              "x": -36,
+              "y": 104,
+              "w": 150,
+              "h": 185,
+              "rot": 15.4,
+              "file": "demo-006.jpg"
+            },
+            {
+              "id": "p6-1",
+              "kind": "image",
+              "x": 150,
+              "y": 118,
+              "w": 150,
+              "h": 185,
+              "rot": -7.7,
+              "file": "demo-007.jpg"
+            }
+          ],
+          "submittedAt": 1785832382817,
+          "flower": "pmscynha3",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.85
+    },
+    {
+      "id": "pmseehpi9",
+      "flower": "iris",
+      "pot": "cream",
+      "name": "Iris",
+      "plantedAt": 1785832382817,
+      "bloomedAt": 1785917241418,
+      "entries": [
+        {
+          "at": 1785917241417,
+          "text": "a stranger held the door and smiled."
+        },
+        {
+          "at": 1785917241418,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1785852000000,
+          "items": [
+            {
+              "id": "w7",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "a stranger held the door and smiled."
+            },
+            {
+              "id": "p7-0",
+              "kind": "image",
+              "x": 92,
+              "y": 96,
+              "w": 150,
+              "h": 185,
+              "rot": 3.7,
+              "file": "demo-008.jpg"
+            }
+          ],
+          "submittedAt": 1785917241417,
+          "flower": "pmseehpi9",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmsft0itl",
+      "flower": "daisy",
+      "pot": "ochre",
+      "name": "Daisy patch",
+      "plantedAt": 1785917241417,
+      "bloomedAt": 1786004633428,
+      "entries": [
+        {
+          "at": 1786004633427,
+          "text": "rain all day. good excuse to stay in and draw."
+        },
+        {
+          "at": 1786004633428,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1785938400000,
+          "items": [
+            {
+              "id": "w8",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "rain all day. good excuse to stay in and draw."
+            },
+            {
+              "id": "p8-0",
+              "kind": "image",
+              "x": 64,
+              "y": 92,
+              "w": 150,
+              "h": 185,
+              "rot": -5.1,
+              "file": "demo-009.jpg"
+            }
+          ],
+          "submittedAt": 1786004633427,
+          "flower": "pmsft0itl",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmsh91mxf",
+      "flower": "nemophila",
+      "pot": "celadon",
+      "name": "Baby blue eyes",
+      "plantedAt": 1786004633427,
+      "bloomedAt": 1786090050204,
+      "entries": [
+        {
+          "at": 1786090050203,
+          "text": "made pancakes for no reason."
+        },
+        {
+          "at": 1786090050204,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1786024800000,
+          "items": [
+            {
+              "id": "w9",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "made pancakes for no reason."
+            },
+            {
+              "id": "p9-0",
+              "kind": "image",
+              "x": 118,
+              "y": 100,
+              "w": 150,
+              "h": 185,
+              "rot": 6.8,
+              "file": "demo-010.jpg"
+            }
+          ],
+          "submittedAt": 1786090050203,
+          "flower": "pmsh91mxf",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmsinwexn",
+      "flower": "daisy",
+      "pot": "clay",
+      "name": "Daisy patch",
+      "plantedAt": 1786090050203,
+      "bloomedAt": 1786176848925,
+      "entries": [
+        {
+          "at": 1786176848924,
+          "text": "walked home the long way."
+        },
+        {
+          "at": 1786176848925,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1786111200000,
+          "items": [
+            {
+              "id": "w10",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "walked home the long way."
+            },
+            {
+              "id": "p10-0",
+              "kind": "image",
+              "x": 40,
+              "y": 108,
+              "w": 150,
+              "h": 185,
+              "rot": -2.2,
+              "file": "demo-006.jpg"
+            }
+          ],
+          "submittedAt": 1786176848924,
+          "flower": "pmsinwexn",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmsk3kt98",
+      "flower": "daisy",
+      "pot": "sage",
+      "name": "Daisy patch",
+      "plantedAt": 1786176848924,
+      "bloomedAt": 1786264569765,
+      "entries": [
+        {
+          "at": 1786264569764,
+          "text": "morning coffee before anyone else was up."
+        },
+        {
+          "at": 1786264569765,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1786197600000,
+          "items": [
+            {
+              "id": "w11",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "morning coffee before anyone else was up."
+            },
+            {
+              "id": "p11-0",
+              "kind": "image",
+              "x": 92,
+              "y": 96,
+              "w": 150,
+              "h": 185,
+              "rot": 4.7,
+              "file": "demo-002.jpg"
+            }
+          ],
+          "submittedAt": 1786264569764,
+          "flower": "pmsk3kt98",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmsljsz38",
+      "flower": "blossom",
+      "pot": "cream",
+      "name": "Blossom",
+      "plantedAt": 1786264569764,
+      "bloomedAt": 1786351985973,
+      "entries": [
+        {
+          "at": 1786351985972,
+          "text": "the first warm evening of the year."
+        },
+        {
+          "at": 1786351985973,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1786284000000,
+          "items": [
+            {
+              "id": "w12",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "the first warm evening of the year."
+            },
+            {
+              "id": "p12-0",
+              "kind": "image",
+              "x": 64,
+              "y": 92,
+              "w": 150,
+              "h": 185,
+              "rot": -6.3,
+              "file": "demo-007.jpg"
+            }
+          ],
+          "submittedAt": 1786351985972,
+          "flower": "pmsljsz38",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmsmzulv8",
+      "flower": "lily",
+      "pot": "ochre",
+      "name": "Lily of the valley",
+      "plantedAt": 1786351985972,
+      "bloomedAt": 1786437322433,
+      "entries": [
+        {
+          "at": 1786437322432,
+          "text": "fixed the thing that's been bugging me all week."
+        },
+        {
+          "at": 1786437322433,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1786370400000,
+          "items": [
+            {
+              "id": "w13",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "fixed the thing that's been bugging me all week."
+            },
+            {
+              "id": "p13-0",
+              "kind": "image",
+              "x": 118,
+              "y": 100,
+              "w": 150,
+              "h": 185,
+              "rot": 8.2,
+              "file": "demo-001.jpg"
+            }
+          ],
+          "submittedAt": 1786437322432,
+          "flower": "pmsmzulv8",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmsoennwg",
+      "flower": "lily",
+      "pot": "celadon",
+      "name": "Lily of the valley",
+      "plantedAt": 1786437322432,
+      "bloomedAt": 1786524710627,
+      "entries": [
+        {
+          "at": 1786524710626,
+          "text": "coffee with an old friend. two hours went by."
+        },
+        {
+          "at": 1786524710627,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1786456800000,
+          "items": [
+            {
+              "id": "w14",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "coffee with an old friend. two hours went by."
+            },
+            {
+              "id": "p14-0",
+              "kind": "image",
+              "x": 40,
+              "y": 108,
+              "w": 150,
+              "h": 185,
+              "rot": -4.1,
+              "file": "demo-003.jpg"
+            }
+          ],
+          "submittedAt": 1786524710626,
+          "flower": "pmsoennwg",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmspuop2a",
+      "flower": "jasmine",
+      "pot": "clay",
+      "name": "Jasmine",
+      "plantedAt": 1786524710626,
+      "bloomedAt": 1786610567382,
+      "entries": [
+        {
+          "at": 1786610567381,
+          "text": "the sketch finally clicked."
+        },
+        {
+          "at": 1786610567382,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1786543200000,
+          "items": [
+            {
+              "id": "w15",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "the sketch finally clicked."
+            },
+            {
+              "id": "p15-0",
+              "kind": "image",
+              "x": 92,
+              "y": 96,
+              "w": 150,
+              "h": 185,
+              "rot": 3,
+              "file": "demo-002.jpg"
+            }
+          ],
+          "submittedAt": 1786610567381,
+          "flower": "pmspuop2a",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmsr9swk5",
+      "flower": "nemophila",
+      "pot": "sage",
+      "name": "Baby blue eyes",
+      "plantedAt": 1786610567381,
+      "bloomedAt": 1786696311532,
+      "entries": [
+        {
+          "at": 1786696311531,
+          "text": "back on the trail. the gums were glowing."
+        },
+        {
+          "at": 1786696311532,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1786629600000,
+          "items": [
+            {
+              "id": "w16",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "back on the trail. the gums were glowing."
+            },
+            {
+              "id": "p16-0",
+              "kind": "image",
+              "x": 64,
+              "y": 92,
+              "w": 150,
+              "h": 185,
+              "rot": -5.7,
+              "file": "demo-011.jpg"
+            }
+          ],
+          "submittedAt": 1786696311531,
+          "flower": "pmsr9swk5",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmssoup63",
+      "flower": "iris",
+      "pot": "cream",
+      "name": "Iris",
+      "plantedAt": 1786696311531,
+      "bloomedAt": 1786780851879,
+      "entries": [
+        {
+          "at": 1786780851878,
+          "text": "early night. woke up rested."
+        },
+        {
+          "at": 1786780851879,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1786716000000,
+          "items": [
+            {
+              "id": "w17",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "early night. woke up rested."
+            },
+            {
+              "id": "p17-0",
+              "kind": "image",
+              "x": 118,
+              "y": 100,
+              "w": 150,
+              "h": 185,
+              "rot": 7.5,
+              "file": "demo-004.jpg"
+            }
+          ],
+          "submittedAt": 1786780851878,
+          "flower": "pmssoup63",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmsu36ox2",
+      "flower": "nemophila",
+      "pot": "ochre",
+      "name": "Baby blue eyes",
+      "plantedAt": 1786780851878,
+      "bloomedAt": 1786868640968,
+      "entries": [
+        {
+          "at": 1786868640967,
+          "text": "found a new lunch spot. worth the queue."
+        },
+        {
+          "at": 1786868640968,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1786802400000,
+          "items": [
+            {
+              "id": "w18",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "found a new lunch spot. worth the queue."
+            },
+            {
+              "id": "p18-0",
+              "kind": "image",
+              "x": 40,
+              "y": 108,
+              "w": 150,
+              "h": 185,
+              "rot": -1.5,
+              "file": "demo-005.jpg"
+            }
+          ],
+          "submittedAt": 1786868640967,
+          "flower": "pmsu36ox2",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmsvjgbev",
+      "flower": "jasmine",
+      "pot": "celadon",
+      "name": "Jasmine",
+      "plantedAt": 1786868640967,
+      "bloomedAt": 1786954064699,
+      "entries": [
+        {
+          "at": 1786954064698,
+          "text": "stretched for ten minutes. felt brand new."
+        },
+        {
+          "at": 1786954064699,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1786888800000,
+          "items": [
+            {
+              "id": "w19",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "stretched for ten minutes. felt brand new."
+            },
+            {
+              "id": "p19-0",
+              "kind": "image",
+              "x": 92,
+              "y": 96,
+              "w": 150,
+              "h": 185,
+              "rot": 3.1,
+              "file": "demo-008.jpg"
+            }
+          ],
+          "submittedAt": 1786954064698,
+          "flower": "pmsvjgbev",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmswyb8sa",
+      "flower": "daisy",
+      "pot": "clay",
+      "name": "Daisy patch",
+      "plantedAt": 1786954064698,
+      "bloomedAt": 1787040913450,
+      "entries": [
+        {
+          "at": 1787040913449,
+          "text": "a really good sandwich."
+        },
+        {
+          "at": 1787040913450,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1786975200000,
+          "items": [
+            {
+              "id": "w20",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "a really good sandwich."
+            },
+            {
+              "id": "p20-0",
+              "kind": "image",
+              "x": 64,
+              "y": 92,
+              "w": 150,
+              "h": 185,
+              "rot": -6.1,
+              "file": "demo-009.jpg"
+            }
+          ],
+          "submittedAt": 1787040913449,
+          "flower": "pmswyb8sa",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmsye0ppl",
+      "flower": "daisy",
+      "pot": "sage",
+      "name": "Daisy patch",
+      "plantedAt": 1787040913449,
+      "bloomedAt": 1787129616909,
+      "entries": [
+        {
+          "at": 1787129616908,
+          "text": "cleaned the desk and lit a candle."
+        },
+        {
+          "at": 1787129616909,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1787061600000,
+          "items": [
+            {
+              "id": "w21",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "cleaned the desk and lit a candle."
+            },
+            {
+              "id": "p21-0",
+              "kind": "image",
+              "x": 118,
+              "y": 100,
+              "w": 150,
+              "h": 185,
+              "rot": 6.1,
+              "file": "demo-010.jpg"
+            }
+          ],
+          "submittedAt": 1787129616908,
+          "flower": "pmsye0ppl",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmszutxqk",
+      "flower": "shrub",
+      "pot": "cream",
+      "name": "Shrub",
+      "plantedAt": 1787129616908,
+      "bloomedAt": 1787213673990,
+      "entries": [
+        {
+          "at": 1787213673989,
+          "text": "recorded a little video about design. it's about understanding, not output."
+        },
+        {
+          "at": 1787213673990,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1787148000000,
+          "items": [
+            {
+              "id": "w22",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "recorded a little video about design. it's about understanding, not output."
+            },
+            {
+              "id": "p22-0",
+              "kind": "image",
+              "x": 40,
+              "y": 108,
+              "w": 150,
+              "h": 185,
+              "rot": -3.5,
+              "file": "demo-003.jpg"
+            }
+          ],
+          "submittedAt": 1787213673989,
+          "flower": "pmszutxqk",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmt18vklh",
+      "flower": "daisy",
+      "pot": "ochre",
+      "name": "Daisy patch",
+      "plantedAt": 1787213673989,
+      "bloomedAt": 1787300173578,
+      "entries": [
+        {
+          "at": 1787300173577,
+          "text": "shipped a small update. nobody noticed, which means it worked."
+        },
+        {
+          "at": 1787300173578,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1787234400000,
+          "items": [
+            {
+              "id": "w23",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "shipped a small update. nobody noticed, which means it worked."
+            },
+            {
+              "id": "p23-0",
+              "kind": "image",
+              "x": 92,
+              "y": 96,
+              "w": 150,
+              "h": 185,
+              "rot": 3.3,
+              "file": "demo-001.jpg"
+            }
+          ],
+          "submittedAt": 1787300173577,
+          "flower": "pmt18vklh",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmt2odk3t",
+      "flower": "nemophila",
+      "pot": "celadon",
+      "name": "Baby blue eyes",
+      "plantedAt": 1787300173577,
+      "bloomedAt": 1787386131193,
+      "entries": [
+        {
+          "at": 1787386131192,
+          "text": "sunset from the balcony."
+        },
+        {
+          "at": 1787386131193,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1787320800000,
+          "items": [
+            {
+              "id": "w24",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "sunset from the balcony."
+            },
+            {
+              "id": "p24-0",
+              "kind": "image",
+              "x": 64,
+              "y": 92,
+              "w": 150,
+              "h": 185,
+              "rot": -6.9,
+              "file": "demo-011.jpg"
+            }
+          ],
+          "submittedAt": 1787386131192,
+          "flower": "pmt2odk3t",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmt43jxfc",
+      "flower": "nemophila",
+      "pot": "clay",
+      "name": "Baby blue eyes",
+      "plantedAt": 1787386131192,
+      "bloomedAt": 1787472631475,
+      "entries": [
+        {
+          "at": 1787472631474,
+          "text": "learned something new about colour."
+        },
+        {
+          "at": 1787472631475,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1787407200000,
+          "items": [
+            {
+              "id": "w25",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "learned something new about colour."
+            },
+            {
+              "id": "p25-0",
+              "kind": "image",
+              "x": 118,
+              "y": 100,
+              "w": 150,
+              "h": 185,
+              "rot": 6.7,
+              "file": "demo-003.jpg"
+            }
+          ],
+          "submittedAt": 1787472631474,
+          "flower": "pmt43jxfc",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmt5j1xgy",
+      "flower": "blossom",
+      "pot": "sage",
+      "name": "Blossom",
+      "plantedAt": 1787472631474,
+      "bloomedAt": 1787564769023,
+      "entries": [
+        {
+          "at": 1787564769022,
+          "text": "laughed until it hurt."
+        },
+        {
+          "at": 1787564769023,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1787493600000,
+          "items": [
+            {
+              "id": "w26",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "laughed until it hurt."
+            },
+            {
+              "id": "p26-0",
+              "kind": "image",
+              "x": 40,
+              "y": 108,
+              "w": 150,
+              "h": 185,
+              "rot": -2.9,
+              "file": "demo-002.jpg"
+            }
+          ],
+          "submittedAt": 1787564769022,
+          "flower": "pmt5j1xgy",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmt71wr9a",
+      "flower": "jasmine",
+      "pot": "cream",
+      "name": "Jasmine",
+      "plantedAt": 1787564769022,
+      "bloomedAt": 1787646477398,
+      "entries": [
+        {
+          "at": 1787646477397,
+          "text": "creek day. hopped across every rock."
+        },
+        {
+          "at": 1787646477398,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1787580000000,
+          "items": [
+            {
+              "id": "w27",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "creek day. hopped across every rock."
+            },
+            {
+              "id": "p27-0",
+              "kind": "image",
+              "x": 92,
+              "y": 96,
+              "w": 150,
+              "h": 185,
+              "rot": 3.5,
+              "file": "demo-012.jpg"
+            }
+          ],
+          "submittedAt": 1787646477397,
+          "flower": "pmt71wr9a",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmt8ek1ud",
+      "flower": "daisy",
+      "pot": "ochre",
+      "name": "Daisy patch",
+      "plantedAt": 1787646477397,
+      "bloomedAt": 1787733320372,
+      "entries": [
+        {
+          "at": 1787733320371,
+          "text": "a slow saturday."
+        },
+        {
+          "at": 1787733320372,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1787666400000,
+          "items": [
+            {
+              "id": "w28",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "a slow saturday."
+            },
+            {
+              "id": "p28-0",
+              "kind": "image",
+              "x": 64,
+              "y": 92,
+              "w": 150,
+              "h": 185,
+              "rot": -5.3,
+              "file": "demo-004.jpg"
+            }
+          ],
+          "submittedAt": 1787733320371,
+          "flower": "pmt8ek1ud",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmt9u9eb7",
+      "flower": "nemophila",
+      "pot": "celadon",
+      "name": "Baby blue eyes",
+      "plantedAt": 1787733320371,
+      "bloomedAt": 1787819664538,
+      "entries": [
+        {
+          "at": 1787819664537,
+          "text": "drew for an hour without looking at my phone."
+        },
+        {
+          "at": 1787819664538,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1787752800000,
+          "items": [
+            {
+              "id": "w29",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "drew for an hour without looking at my phone."
+            },
+            {
+              "id": "p29-0",
+              "kind": "image",
+              "x": 118,
+              "y": 100,
+              "w": 150,
+              "h": 185,
+              "rot": 5.7,
+              "file": "demo-005.jpg"
+            }
+          ],
+          "submittedAt": 1787819664537,
+          "flower": "pmt9u9eb7",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmtb9o1w9",
+      "flower": "daisy",
+      "pot": "clay",
+      "name": "Daisy patch",
+      "plantedAt": 1787819664537,
+      "bloomedAt": 1787907140503,
+      "entries": [
+        {
+          "at": 1787907140502,
+          "text": "the plants on the windowsill are thriving."
+        },
+        {
+          "at": 1787907140503,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1787839200000,
+          "items": [
+            {
+              "id": "w30",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "the plants on the windowsill are thriving."
+            },
+            {
+              "id": "p30-0",
+              "kind": "image",
+              "x": 40,
+              "y": 108,
+              "w": 150,
+              "h": 185,
+              "rot": -4.4,
+              "file": "demo-008.jpg"
+            }
+          ],
+          "submittedAt": 1787907140502,
+          "flower": "pmtb9o1w9",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmtcpqys6",
+      "flower": "shrub",
+      "pot": "sage",
+      "name": "Shrub",
+      "plantedAt": 1787907140502,
+      "bloomedAt": 1787993825125,
+      "entries": [
+        {
+          "at": 1787993825124,
+          "text": "a good walk after dinner."
+        },
+        {
+          "at": 1787993825125,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1787925600000,
+          "items": [
+            {
+              "id": "w31",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "a good walk after dinner."
+            },
+            {
+              "id": "p31-0",
+              "kind": "image",
+              "x": 92,
+              "y": 96,
+              "w": 150,
+              "h": 185,
+              "rot": 5.1,
+              "file": "demo-013.jpg"
+            }
+          ],
+          "submittedAt": 1787993825124,
+          "flower": "pmtcpqys6",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmte5cx2c",
+      "flower": "iris",
+      "pot": "cream",
+      "name": "Iris",
+      "plantedAt": 1787993825124,
+      "bloomedAt": 1788077493938,
+      "entries": [
+        {
+          "at": 1788077493937,
+          "text": "new cap, old hoodie, good mood."
+        },
+        {
+          "at": 1788077493938,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1788012000000,
+          "items": [
+            {
+              "id": "w32",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "new cap, old hoodie, good mood."
+            },
+            {
+              "id": "p32-0",
+              "kind": "image",
+              "x": 64,
+              "y": 92,
+              "w": 150,
+              "h": 185,
+              "rot": -4.6,
+              "file": "demo-004.jpg"
+            }
+          ],
+          "submittedAt": 1788077493937,
+          "flower": "pmte5cx2c",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmtfj68c1",
+      "flower": "daisy",
+      "pot": "ochre",
+      "name": "Daisy patch",
+      "plantedAt": 1788077493937,
+      "bloomedAt": 1788166091591,
+      "entries": [
+        {
+          "at": 1788166091590,
+          "text": "finally answered that message."
+        },
+        {
+          "at": 1788166091591,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1788098400000,
+          "items": [
+            {
+              "id": "w33",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "finally answered that message."
+            },
+            {
+              "id": "p33-0",
+              "kind": "image",
+              "x": 118,
+              "y": 100,
+              "w": 150,
+              "h": 185,
+              "rot": 7.4,
+              "file": "demo-009.jpg"
+            }
+          ],
+          "submittedAt": 1788166091590,
+          "flower": "pmtfj68c1",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmtgzx6py",
+      "flower": "lily",
+      "pot": "celadon",
+      "name": "Lily of the valley",
+      "plantedAt": 1788166091590,
+      "bloomedAt": 1788250719608,
+      "entries": [
+        {
+          "at": 1788250719607,
+          "text": "watched the clouds roll in over the harbour."
+        },
+        {
+          "at": 1788250719608,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1788184800000,
+          "items": [
+            {
+              "id": "w34",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "watched the clouds roll in over the harbour."
+            },
+            {
+              "id": "p34-0",
+              "kind": "image",
+              "x": 40,
+              "y": 108,
+              "w": 150,
+              "h": 185,
+              "rot": -3.1,
+              "file": "demo-014.jpg"
+            }
+          ],
+          "submittedAt": 1788250719607,
+          "flower": "pmtgzx6py",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmtieb247",
+      "flower": "lily",
+      "pot": "clay",
+      "name": "Lily of the valley",
+      "plantedAt": 1788250719607,
+      "bloomedAt": 1788336080607,
+      "entries": [
+        {
+          "at": 1788336080606,
+          "text": "a long shower and clean sheets."
+        },
+        {
+          "at": 1788336080607,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1788271200000,
+          "items": [
+            {
+              "id": "w35",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "a long shower and clean sheets."
+            },
+            {
+              "id": "p35-0",
+              "kind": "image",
+              "x": 92,
+              "y": 96,
+              "w": 150,
+              "h": 185,
+              "rot": 4.9,
+              "file": "demo-010.jpg"
+            }
+          ],
+          "submittedAt": 1788336080606,
+          "flower": "pmtieb247",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmtjt4n32",
+      "flower": "nemophila",
+      "pot": "sage",
+      "name": "Baby blue eyes",
+      "plantedAt": 1788336080606,
+      "bloomedAt": 1788426060801,
+      "entries": [
+        {
+          "at": 1788426060800,
+          "text": "tidied the studio. it feels bigger."
+        },
+        {
+          "at": 1788426060801,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1788357600000,
+          "items": [
+            {
+              "id": "w36",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "tidied the studio. it feels bigger."
+            },
+            {
+              "id": "p36-0",
+              "kind": "image",
+              "x": 64,
+              "y": 92,
+              "w": 150,
+              "h": 185,
+              "rot": -5,
+              "file": "demo-001.jpg"
+            }
+          ],
+          "submittedAt": 1788426060800,
+          "flower": "pmtjt4n32",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmtlap88w",
+      "flower": "lily",
+      "pot": "cream",
+      "name": "Lily of the valley",
+      "plantedAt": 1788426060800,
+      "bloomedAt": 1788511999550,
+      "entries": [
+        {
+          "at": 1788511999549,
+          "text": "sat in the sun in the bush for a long while."
+        },
+        {
+          "at": 1788511999550,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1788444000000,
+          "items": [
+            {
+              "id": "w37",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "sat in the sun in the bush for a long while."
+            },
+            {
+              "id": "p37-0",
+              "kind": "image",
+              "x": 118,
+              "y": 100,
+              "w": 150,
+              "h": 185,
+              "rot": 8.4,
+              "file": "demo-013.jpg"
+            }
+          ],
+          "submittedAt": 1788511999549,
+          "flower": "pmtlap88w",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmtmpv70d",
+      "flower": "daisy",
+      "pot": "ochre",
+      "name": "Daisy patch",
+      "plantedAt": 1788511999549,
+      "bloomedAt": 1788597533926,
+      "entries": [
+        {
+          "at": 1788597533925,
+          "text": "wrote down three ideas worth trying."
+        },
+        {
+          "at": 1788597533926,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1788530400000,
+          "items": [
+            {
+              "id": "w38",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "wrote down three ideas worth trying."
+            },
+            {
+              "id": "p38-0",
+              "kind": "image",
+              "x": 40,
+              "y": 108,
+              "w": 150,
+              "h": 185,
+              "rot": -4,
+              "file": "demo-003.jpg"
+            }
+          ],
+          "submittedAt": 1788597533925,
+          "flower": "pmtmpv70d",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmto4shr9",
+      "flower": "daisy",
+      "pot": "celadon",
+      "name": "Daisy patch",
+      "plantedAt": 1788597533925,
+      "bloomedAt": 1788684458368,
+      "entries": [
+        {
+          "at": 1788684458367,
+          "text": "a quiet train ride with music."
+        },
+        {
+          "at": 1788684458368,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1788616800000,
+          "items": [
+            {
+              "id": "w39",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "a quiet train ride with music."
+            },
+            {
+              "id": "p39-0",
+              "kind": "image",
+              "x": 92,
+              "y": 96,
+              "w": 150,
+              "h": 185,
+              "rot": 2.6,
+              "file": "demo-015.jpg"
+            }
+          ],
+          "submittedAt": 1788684458367,
+          "flower": "pmto4shr9",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmtpkjl33",
+      "flower": "nemophila",
+      "pot": "clay",
+      "name": "Baby blue eyes",
+      "plantedAt": 1788684458367,
+      "bloomedAt": 1788770278121,
+      "entries": [
+        {
+          "at": 1788770278120,
+          "text": "the first coffee of the morning hit just right."
+        },
+        {
+          "at": 1788770278121,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1788703200000,
+          "items": [
+            {
+              "id": "w40",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "the first coffee of the morning hit just right."
+            },
+            {
+              "id": "p40-0",
+              "kind": "image",
+              "x": 64,
+              "y": 92,
+              "w": 150,
+              "h": 185,
+              "rot": -6.1,
+              "file": "demo-002.jpg"
+            }
+          ],
+          "submittedAt": 1788770278120,
+          "flower": "pmtpkjl33",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmtqzn014",
+      "flower": "daisy",
+      "pot": "sage",
+      "name": "Daisy patch",
+      "plantedAt": 1788770278120,
+      "bloomedAt": 1788857466248,
+      "entries": [
+        {
+          "at": 1788857466247,
+          "text": "helped someone with their portfolio."
+        },
+        {
+          "at": 1788857466248,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1788789600000,
+          "items": [
+            {
+              "id": "w41",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "helped someone with their portfolio."
+            },
+            {
+              "id": "p41-0",
+              "kind": "image",
+              "x": 118,
+              "y": 100,
+              "w": 150,
+              "h": 185,
+              "rot": 6.4,
+              "file": "demo-004.jpg"
+            }
+          ],
+          "submittedAt": 1788857466247,
+          "flower": "pmtqzn014",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmtsfjqtj",
+      "flower": "daisy",
+      "pot": "cream",
+      "name": "Daisy patch",
+      "plantedAt": 1788857466247,
+      "bloomedAt": 1788941051425,
+      "entries": [
+        {
+          "at": 1788941051424,
+          "text": "the parcel finally came. it was the right size this time."
+        },
+        {
+          "at": 1788941051425,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1788876000000,
+          "items": [
+            {
+              "id": "w42",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "the parcel finally came. it was the right size this time."
+            },
+            {
+              "id": "p42-0",
+              "kind": "image",
+              "x": 40,
+              "y": 108,
+              "w": 150,
+              "h": 185,
+              "rot": -2.1,
+              "file": "demo-005.jpg"
+            }
+          ],
+          "submittedAt": 1788941051424,
+          "flower": "pmtsfjqtj",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmtttb9k0",
+      "flower": "blossom",
+      "pot": "ochre",
+      "name": "Blossom",
+      "plantedAt": 1788941051424,
+      "bloomedAt": 1789029137123,
+      "entries": [
+        {
+          "at": 1789029137122,
+          "text": "a good playlist on a grey day."
+        },
+        {
+          "at": 1789029137123,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1788962400000,
+          "items": [
+            {
+              "id": "w43",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "a good playlist on a grey day."
+            },
+            {
+              "id": "p43-0",
+              "kind": "image",
+              "x": 92,
+              "y": 96,
+              "w": 150,
+              "h": 185,
+              "rot": 4.5,
+              "file": "demo-008.jpg"
+            }
+          ],
+          "submittedAt": 1789029137122,
+          "flower": "pmtttb9k0",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmtv9r8wy",
+      "flower": "nemophila",
+      "pot": "celadon",
+      "name": "Baby blue eyes",
+      "plantedAt": 1789029137122,
+      "bloomedAt": 1789117113519,
+      "entries": [
+        {
+          "at": 1789117113518,
+          "text": "made it to the gym, finally."
+        },
+        {
+          "at": 1789117113519,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1789048800000,
+          "items": [
+            {
+              "id": "w44",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "made it to the gym, finally."
+            },
+            {
+              "id": "p44-0",
+              "kind": "image",
+              "x": 64,
+              "y": 92,
+              "w": 150,
+              "h": 185,
+              "rot": -7.4,
+              "file": "demo-009.jpg"
+            }
+          ],
+          "submittedAt": 1789117113518,
+          "flower": "pmtv9r8wy",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmtwq4vxq",
+      "flower": "nemophila",
+      "pot": "clay",
+      "name": "Baby blue eyes",
+      "plantedAt": 1789117113518,
+      "bloomedAt": 1789202675795,
+      "entries": [
+        {
+          "at": 1789202675794,
+          "text": "tried a new recipe. dinner was good."
+        },
+        {
+          "at": 1789202675795,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1789135200000,
+          "items": [
+            {
+              "id": "w45",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "tried a new recipe. dinner was good."
+            },
+            {
+              "id": "p45-0",
+              "kind": "image",
+              "x": 118,
+              "y": 100,
+              "w": 150,
+              "h": 185,
+              "rot": 7.7,
+              "file": "demo-010.jpg"
+            }
+          ],
+          "submittedAt": 1789202675794,
+          "flower": "pmtwq4vxq",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmty52s7m",
+      "flower": "lily",
+      "pot": "sage",
+      "name": "Lily of the valley",
+      "plantedAt": 1789202675794,
+      "bloomedAt": 1789286714971,
+      "entries": [
+        {
+          "at": 1789286714970,
+          "text": "read in the park until the light went."
+        },
+        {
+          "at": 1789286714971,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1789221600000,
+          "items": [
+            {
+              "id": "w46",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "read in the park until the light went."
+            },
+            {
+              "id": "p46-0",
+              "kind": "image",
+              "x": 40,
+              "y": 108,
+              "w": 150,
+              "h": 185,
+              "rot": -3.2,
+              "file": "demo-016.jpg"
+            }
+          ],
+          "submittedAt": 1789286714970,
+          "flower": "pmty52s7m",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmtzj4196",
+      "flower": "jasmine",
+      "pot": "cream",
+      "name": "Jasmine",
+      "plantedAt": 1789286714970,
+      "bloomedAt": 1789373282285,
+      "entries": [
+        {
+          "at": 1789373282284,
+          "text": "harbour trail at lunch. the light through the trees."
+        },
+        {
+          "at": 1789373282285,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1789308000000,
+          "items": [
+            {
+              "id": "w47",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "harbour trail at lunch. the light through the trees."
+            },
+            {
+              "id": "p47-0",
+              "kind": "image",
+              "x": 92,
+              "y": 96,
+              "w": 150,
+              "h": 185,
+              "rot": 2.9,
+              "file": "demo-017.jpg"
+            }
+          ],
+          "submittedAt": 1789373282284,
+          "flower": "pmtzj4196",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmu0ynh0s",
+      "flower": "nemophila",
+      "pot": "ochre",
+      "name": "Baby blue eyes",
+      "plantedAt": 1789373282284,
+      "bloomedAt": 1789462233460,
+      "entries": [
+        {
+          "at": 1789462233459,
+          "text": "sorted the photos from last month."
+        },
+        {
+          "at": 1789462233460,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1789394400000,
+          "items": [
+            {
+              "id": "w48",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "sorted the photos from last month."
+            },
+            {
+              "id": "p48-0",
+              "kind": "image",
+              "x": 64,
+              "y": 92,
+              "w": 150,
+              "h": 185,
+              "rot": -6,
+              "file": "demo-001.jpg"
+            }
+          ],
+          "submittedAt": 1789462233459,
+          "flower": "pmu0ynh0s",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmu2fm06r",
+      "flower": "daisy",
+      "pot": "celadon",
+      "name": "Daisy patch",
+      "plantedAt": 1789462233459,
+      "bloomedAt": 1789546611041,
+      "entries": [
+        {
+          "at": 1789546611040,
+          "text": "got a kind message out of nowhere."
+        },
+        {
+          "at": 1789546611041,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1789480800000,
+          "items": [
+            {
+              "id": "w49",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "got a kind message out of nowhere."
+            },
+            {
+              "id": "p49-0",
+              "kind": "image",
+              "x": 118,
+              "y": 100,
+              "w": 150,
+              "h": 185,
+              "rot": 5.5,
+              "file": "demo-003.jpg"
+            }
+          ],
+          "submittedAt": 1789546611040,
+          "flower": "pmu2fm06r",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmu3tuicg",
+      "flower": "nemophila",
+      "pot": "clay",
+      "name": "Baby blue eyes",
+      "plantedAt": 1789546611040,
+      "bloomedAt": 1789632613638,
+      "entries": [
+        {
+          "at": 1789632613637,
+          "text": "a slow breakfast."
+        },
+        {
+          "at": 1789632613638,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1789567200000,
+          "items": [
+            {
+              "id": "w50",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "a slow breakfast."
+            },
+            {
+              "id": "p50-0",
+              "kind": "image",
+              "x": 40,
+              "y": 108,
+              "w": 150,
+              "h": 185,
+              "rot": -2.8,
+              "file": "demo-002.jpg"
+            }
+          ],
+          "submittedAt": 1789632613637,
+          "flower": "pmu3tuicg",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmu591udh",
+      "flower": "chrysanthemum",
+      "pot": "sage",
+      "name": "Chrysanthemum",
+      "plantedAt": 1789632613637,
+      "bloomedAt": 1789719548704,
+      "entries": [
+        {
+          "at": 1789719548703,
+          "text": "the new prototype feels right."
+        },
+        {
+          "at": 1789719548704,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1789653600000,
+          "items": [
+            {
+              "id": "w51",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "the new prototype feels right."
+            },
+            {
+              "id": "p51-0",
+              "kind": "image",
+              "x": 92,
+              "y": 96,
+              "w": 150,
+              "h": 185,
+              "rot": 4.8,
+              "file": "demo-004.jpg"
+            }
+          ],
+          "submittedAt": 1789719548703,
+          "flower": "pmu591udh",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmu6ot5wf",
+      "flower": "shrub",
+      "pot": "cream",
+      "name": "Shrub",
+      "plantedAt": 1789719548703,
+      "bloomedAt": 1789806474061,
+      "entries": [
+        {
+          "at": 1789806474060,
+          "text": "cleared the to-do list before lunch."
+        },
+        {
+          "at": 1789806474061,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1789740000000,
+          "items": [
+            {
+              "id": "w52",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "cleared the to-do list before lunch."
+            },
+            {
+              "id": "p52-0",
+              "kind": "image",
+              "x": 64,
+              "y": 92,
+              "w": 150,
+              "h": 185,
+              "rot": -6.5,
+              "file": "demo-005.jpg"
+            }
+          ],
+          "submittedAt": 1789806474060,
+          "flower": "pmu6ot5wf",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmu84k9xo",
+      "flower": "daisy",
+      "pot": "ochre",
+      "name": "Daisy patch",
+      "plantedAt": 1789806474060,
+      "bloomedAt": 1789893804691,
+      "entries": [
+        {
+          "at": 1789893804689,
+          "text": "felt tall among the gums today."
+        },
+        {
+          "at": 1789893804690,
+          "text": "a picture"
+        },
+        {
+          "at": 1789893804691,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1789826400000,
+          "items": [
+            {
+              "id": "w53",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "felt tall among the gums today."
+            },
+            {
+              "id": "p53-0",
+              "kind": "image",
+              "x": 6,
+              "y": 96,
+              "w": 150,
+              "h": 185,
+              "rot": -8.3,
+              "file": "demo-015.jpg"
+            },
+            {
+              "id": "p53-1",
+              "kind": "image",
+              "x": 140,
+              "y": 140,
+              "w": 150,
+              "h": 185,
+              "rot": 6.8,
+              "file": "demo-016.jpg"
+            }
+          ],
+          "submittedAt": 1789893804689,
+          "flower": "pmu84k9xo",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.85
+    },
+    {
+      "id": "pmu9kk2oh",
+      "flower": "shrub",
+      "pot": "celadon",
+      "name": "Shrub",
+      "plantedAt": 1789893804689,
+      "bloomedAt": 1789978094043,
+      "entries": [
+        {
+          "at": 1789978094042,
+          "text": "bought fresh flowers."
+        },
+        {
+          "at": 1789978094043,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1789912800000,
+          "items": [
+            {
+              "id": "w54",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "bought fresh flowers."
+            },
+            {
+              "id": "p54-0",
+              "kind": "image",
+              "x": 40,
+              "y": 108,
+              "w": 150,
+              "h": 185,
+              "rot": -4.2,
+              "file": "demo-008.jpg"
+            }
+          ],
+          "submittedAt": 1789978094042,
+          "flower": "pmu9kk2oh",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmuayqore",
+      "flower": "nemophila",
+      "pot": "clay",
+      "name": "Baby blue eyes",
+      "plantedAt": 1789978094042,
+      "bloomedAt": 1790067162525,
+      "entries": [
+        {
+          "at": 1790067162524,
+          "text": "the weather was perfect all day."
+        },
+        {
+          "at": 1790067162525,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1789999200000,
+          "items": [
+            {
+              "id": "w55",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "the weather was perfect all day."
+            },
+            {
+              "id": "p55-0",
+              "kind": "image",
+              "x": 92,
+              "y": 96,
+              "w": 150,
+              "h": 185,
+              "rot": 4,
+              "file": "demo-018.jpg"
+            }
+          ],
+          "submittedAt": 1790067162524,
+          "flower": "pmuayqore",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmucfrqfw",
+      "flower": "daisy",
+      "pot": "sage",
+      "name": "Daisy patch",
+      "plantedAt": 1790067162524,
+      "bloomedAt": 1790151580848,
+      "entries": [
+        {
+          "at": 1790151580847,
+          "text": "called a friend i hadn't talked to in ages."
+        },
+        {
+          "at": 1790151580848,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1790085600000,
+          "items": [
+            {
+              "id": "w56",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "called a friend i hadn't talked to in ages."
+            },
+            {
+              "id": "p56-0",
+              "kind": "image",
+              "x": 64,
+              "y": 92,
+              "w": 150,
+              "h": 185,
+              "rot": -4.7,
+              "file": "demo-009.jpg"
+            }
+          ],
+          "submittedAt": 1790151580847,
+          "flower": "pmucfrqfw",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmudu141b",
+      "flower": "jasmine",
+      "pot": "cream",
+      "name": "Jasmine",
+      "plantedAt": 1790151580847,
+      "bloomedAt": 1790237228147,
+      "entries": [
+        {
+          "at": 1790237228146,
+          "text": "a long nap with the windows open."
+        },
+        {
+          "at": 1790237228147,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1790172000000,
+          "items": [
+            {
+              "id": "w57",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "a long nap with the windows open."
+            },
+            {
+              "id": "p57-0",
+              "kind": "image",
+              "x": 118,
+              "y": 100,
+              "w": 150,
+              "h": 185,
+              "rot": 7.1,
+              "file": "demo-010.jpg"
+            }
+          ],
+          "submittedAt": 1790237228146,
+          "flower": "pmudu141b",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmuf90twy",
+      "flower": "nemophila",
+      "pot": "ochre",
+      "name": "Baby blue eyes",
+      "plantedAt": 1790237228146,
+      "bloomedAt": 1790324031030,
+      "entries": [
+        {
+          "at": 1790324031029,
+          "text": "slow morning, flowers on the table."
+        },
+        {
+          "at": 1790324031030,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1790258400000,
+          "items": [
+            {
+              "id": "w58",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "slow morning, flowers on the table."
+            },
+            {
+              "id": "p58-0",
+              "kind": "image",
+              "x": 40,
+              "y": 108,
+              "w": 150,
+              "h": 185,
+              "rot": -1.9,
+              "file": "demo-008.jpg"
+            }
+          ],
+          "submittedAt": 1790324031029,
+          "flower": "pmuf90twy",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmugopbg5",
+      "flower": "blossom",
+      "pot": "celadon",
+      "name": "Blossom",
+      "plantedAt": 1790324031029,
+      "bloomedAt": 1790409903141,
+      "entries": [
+        {
+          "at": 1790409903140,
+          "text": "sketched by the water."
+        },
+        {
+          "at": 1790409903141,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1790344800000,
+          "items": [
+            {
+              "id": "w59",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "sketched by the water."
+            },
+            {
+              "id": "p59-0",
+              "kind": "image",
+              "x": 92,
+              "y": 96,
+              "w": 150,
+              "h": 185,
+              "rot": 5.1,
+              "file": "demo-012.jpg"
+            }
+          ],
+          "submittedAt": 1790409903140,
+          "flower": "pmugopbg5",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmui3tusk",
+      "flower": "iris",
+      "pot": "clay",
+      "name": "Iris",
+      "plantedAt": 1790409903140,
+      "bloomedAt": 1790496840840,
+      "entries": [
+        {
+          "at": 1790496840839,
+          "text": "went to bed on time."
+        },
+        {
+          "at": 1790496840840,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1790431200000,
+          "items": [
+            {
+              "id": "w60",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "went to bed on time."
+            },
+            {
+              "id": "p60-0",
+              "kind": "image",
+              "x": 64,
+              "y": 92,
+              "w": 150,
+              "h": 185,
+              "rot": -4.9,
+              "file": "demo-001.jpg"
+            }
+          ],
+          "submittedAt": 1790496840839,
+          "flower": "pmui3tusk",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmujjl8cn",
+      "flower": "nemophila",
+      "pot": "sage",
+      "name": "Baby blue eyes",
+      "plantedAt": 1790496840839,
+      "bloomedAt": 1790585524159,
+      "entries": [
+        {
+          "at": 1790585524158,
+          "text": "finished the client deck early."
+        },
+        {
+          "at": 1790585524159,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1790517600000,
+          "items": [
+            {
+              "id": "w61",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "finished the client deck early."
+            },
+            {
+              "id": "p61-0",
+              "kind": "image",
+              "x": 118,
+              "y": 100,
+              "w": 150,
+              "h": 185,
+              "rot": 6.7,
+              "file": "demo-003.jpg"
+            }
+          ],
+          "submittedAt": 1790585524158,
+          "flower": "pmujjl8cn",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmul0e0u6",
+      "flower": "daisy",
+      "pot": "cream",
+      "name": "Daisy patch",
+      "plantedAt": 1790585524158,
+      "bloomedAt": 1790671164101,
+      "entries": [
+        {
+          "at": 1790671164100,
+          "text": "bumped into someone i like on the street."
+        },
+        {
+          "at": 1790671164101,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1790604000000,
+          "items": [
+            {
+              "id": "w62",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "bumped into someone i like on the street."
+            },
+            {
+              "id": "p62-0",
+              "kind": "image",
+              "x": 40,
+              "y": 108,
+              "w": 150,
+              "h": 185,
+              "rot": -3.2,
+              "file": "demo-019.jpg"
+            }
+          ],
+          "submittedAt": 1790671164100,
+          "flower": "pmul0e0u6",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmumfdl1g",
+      "flower": "nemophila",
+      "pot": "ochre",
+      "name": "Baby blue eyes",
+      "plantedAt": 1790671164100,
+      "bloomedAt": 1790756790384,
+      "entries": [
+        {
+          "at": 1790756790383,
+          "text": "back at the creek. water so clear you could count the stones."
+        },
+        {
+          "at": 1790756790384,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1790690400000,
+          "items": [
+            {
+              "id": "w63",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "back at the creek. water so clear you could count the stones."
+            },
+            {
+              "id": "p63-0",
+              "kind": "image",
+              "x": 92,
+              "y": 96,
+              "w": 150,
+              "h": 185,
+              "rot": 5.2,
+              "file": "demo-002.jpg"
+            }
+          ],
+          "submittedAt": 1790756790383,
+          "flower": "pmumfdl1g",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmunucupb",
+      "flower": "daisy",
+      "pot": "celadon",
+      "name": "Daisy patch",
+      "plantedAt": 1790756790383,
+      "bloomedAt": 1790844001039,
+      "entries": [
+        {
+          "at": 1790844001038,
+          "text": "a warm night, windows open."
+        },
+        {
+          "at": 1790844001039,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1790776800000,
+          "items": [
+            {
+              "id": "w64",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "a warm night, windows open."
+            },
+            {
+              "id": "p64-0",
+              "kind": "image",
+              "x": 64,
+              "y": 92,
+              "w": 150,
+              "h": 185,
+              "rot": -5.1,
+              "file": "demo-020.jpg"
+            }
+          ],
+          "submittedAt": 1790844001038,
+          "flower": "pmunucupb",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmupaa2vi",
+      "flower": "nemophila",
+      "pot": "clay",
+      "name": "Baby blue eyes",
+      "plantedAt": 1790844001038,
+      "bloomedAt": 1790928747245,
+      "entries": [
+        {
+          "at": 1790928747244,
+          "text": "the garden is filling up."
+        },
+        {
+          "at": 1790928747245,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1790863200000,
+          "items": [
+            {
+              "id": "w65",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "the garden is filling up."
+            },
+            {
+              "id": "p65-0",
+              "kind": "image",
+              "x": 118,
+              "y": 100,
+              "w": 150,
+              "h": 185,
+              "rot": 8.2,
+              "file": "demo-019.jpg"
+            }
+          ],
+          "submittedAt": 1790928747244,
+          "flower": "pmupaa2vi",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmuqoqhgs",
+      "flower": "daisy",
+      "pot": "sage",
+      "name": "Daisy patch",
+      "plantedAt": 1790928747244,
+      "bloomedAt": 1791017281159,
+      "entries": [
+        {
+          "at": 1791017281158,
+          "text": "heard a song i'd forgotten i loved."
+        },
+        {
+          "at": 1791017281159,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1790949600000,
+          "items": [
+            {
+              "id": "w66",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "heard a song i'd forgotten i loved."
+            },
+            {
+              "id": "p66-0",
+              "kind": "image",
+              "x": 40,
+              "y": 108,
+              "w": 150,
+              "h": 185,
+              "rot": -2.1,
+              "file": "demo-004.jpg"
+            }
+          ],
+          "submittedAt": 1791017281158,
+          "flower": "pmuqoqhgs",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmus5g2o6",
+      "flower": "nemophila",
+      "pot": "cream",
+      "name": "Baby blue eyes",
+      "plantedAt": 1791017281158,
+      "bloomedAt": 1791103708825,
+      "entries": [
+        {
+          "at": 1791103708824,
+          "text": "a long walk with no destination."
+        },
+        {
+          "at": 1791103708825,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1791036000000,
+          "items": [
+            {
+              "id": "w67",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "a long walk with no destination."
+            },
+            {
+              "id": "p67-0",
+              "kind": "image",
+              "x": 92,
+              "y": 96,
+              "w": 150,
+              "h": 185,
+              "rot": 4.8,
+              "file": "demo-021.jpg"
+            }
+          ],
+          "submittedAt": 1791103708824,
+          "flower": "pmus5g2o6",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmutkwioo",
+      "flower": "lily",
+      "pot": "ochre",
+      "name": "Lily of the valley",
+      "plantedAt": 1791103708824,
+      "bloomedAt": 1791187830299,
+      "entries": [
+        {
+          "at": 1791187830298,
+          "text": "long call about the new project. good energy."
+        },
+        {
+          "at": 1791187830299,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1791118800000,
+          "items": [
+            {
+              "id": "w68",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "long call about the new project. good energy."
+            },
+            {
+              "id": "p68-0",
+              "kind": "image",
+              "x": 64,
+              "y": 92,
+              "w": 150,
+              "h": 185,
+              "rot": -6,
+              "file": "demo-009.jpg"
+            }
+          ],
+          "submittedAt": 1791187830298,
+          "flower": "pmutkwioo",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmuuyzj8a",
+      "flower": "shrub",
+      "pot": "celadon",
+      "name": "Shrub",
+      "plantedAt": 1791187830298,
+      "bloomedAt": 1791275921941,
+      "entries": [
+        {
+          "at": 1791275921940,
+          "text": "made the bed first thing."
+        },
+        {
+          "at": 1791275921941,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1791205200000,
+          "items": [
+            {
+              "id": "w69",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "made the bed first thing."
+            },
+            {
+              "id": "p69-0",
+              "kind": "image",
+              "x": 118,
+              "y": 100,
+              "w": 150,
+              "h": 185,
+              "rot": 8.2,
+              "file": "demo-005.jpg"
+            }
+          ],
+          "submittedAt": 1791275921940,
+          "flower": "pmuuyzj8a",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmuwffn6c",
+      "flower": "daisy",
+      "pot": "clay",
+      "name": "Daisy patch",
+      "plantedAt": 1791275921940,
+      "bloomedAt": 1791360410960,
+      "entries": [
+        {
+          "at": 1791360410959,
+          "text": "the deadline moved. breathing room."
+        },
+        {
+          "at": 1791360410960,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1791291600000,
+          "items": [
+            {
+              "id": "w70",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "the deadline moved. breathing room."
+            },
+            {
+              "id": "p70-0",
+              "kind": "image",
+              "x": 40,
+              "y": 108,
+              "w": 150,
+              "h": 185,
+              "rot": -3,
+              "file": "demo-008.jpg"
+            }
+          ],
+          "submittedAt": 1791360410959,
+          "flower": "pmuwffn6c",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmuxtqjbj",
+      "flower": "daisy",
+      "pot": "sage",
+      "name": "Daisy patch",
+      "plantedAt": 1791360410959,
+      "bloomedAt": 1791447671040,
+      "entries": [
+        {
+          "at": 1791447671039,
+          "text": "cooked for friends. everyone stayed late."
+        },
+        {
+          "at": 1791447671040,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1791378000000,
+          "items": [
+            {
+              "id": "w71",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "cooked for friends. everyone stayed late."
+            },
+            {
+              "id": "p71-0",
+              "kind": "image",
+              "x": 92,
+              "y": 96,
+              "w": 150,
+              "h": 185,
+              "rot": 4.4,
+              "file": "demo-009.jpg"
+            }
+          ],
+          "submittedAt": 1791447671039,
+          "flower": "pmuxtqjbj",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmuz9otmn",
+      "flower": "nemophila",
+      "pot": "cream",
+      "name": "Baby blue eyes",
+      "plantedAt": 1791447671039,
+      "bloomedAt": 1791534932148,
+      "entries": [
+        {
+          "at": 1791534932147,
+          "text": "the light in the studio at four o'clock."
+        },
+        {
+          "at": 1791534932148,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1791464400000,
+          "items": [
+            {
+              "id": "w72",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "the light in the studio at four o'clock."
+            },
+            {
+              "id": "p72-0",
+              "kind": "image",
+              "x": 64,
+              "y": 92,
+              "w": 150,
+              "h": 185,
+              "rot": -6.4,
+              "file": "demo-010.jpg"
+            }
+          ],
+          "submittedAt": 1791534932147,
+          "flower": "pmuz9otmn",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmv0pn4qb",
+      "flower": "daisy",
+      "pot": "ochre",
+      "name": "Daisy patch",
+      "plantedAt": 1791534932147,
+      "bloomedAt": 1791622189858,
+      "entries": [
+        {
+          "at": 1791622189857,
+          "text": "one more photo on the rock before heading home."
+        },
+        {
+          "at": 1791622189858,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1791550800000,
+          "items": [
+            {
+              "id": "w73",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "one more photo on the rock before heading home."
+            },
+            {
+              "id": "p73-0",
+              "kind": "image",
+              "x": 118,
+              "y": 100,
+              "w": 150,
+              "h": 185,
+              "rot": 7.9,
+              "file": "demo-014.jpg"
+            }
+          ],
+          "submittedAt": 1791622189857,
+          "flower": "pmv0pn4qb",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmv25ld7l",
+      "flower": "jasmine",
+      "pot": "celadon",
+      "name": "Jasmine",
+      "plantedAt": 1791622189857,
+      "bloomedAt": 1791709135181,
+      "entries": [
+        {
+          "at": 1791709135180,
+          "text": "said no to something, felt good."
+        },
+        {
+          "at": 1791709135181,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1791637200000,
+          "items": [
+            {
+              "id": "w74",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "said no to something, felt good."
+            },
+            {
+              "id": "p74-0",
+              "kind": "image",
+              "x": 40,
+              "y": 108,
+              "w": 150,
+              "h": 185,
+              "rot": -4.3,
+              "file": "demo-001.jpg"
+            }
+          ],
+          "submittedAt": 1791709135180,
+          "flower": "pmv25ld7l",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmv3lcwng",
+      "flower": "lotus",
+      "pot": "clay",
+      "name": "Lotus",
+      "plantedAt": 1791709135180,
+      "bloomedAt": 1791792538224,
+      "entries": [
+        {
+          "at": 1791792538223,
+          "text": "went for a run, didn't hate it."
+        },
+        {
+          "at": 1791792538224,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1791723600000,
+          "items": [
+            {
+              "id": "w75",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "went for a run, didn't hate it."
+            },
+            {
+              "id": "p75-0",
+              "kind": "image",
+              "x": 92,
+              "y": 96,
+              "w": 150,
+              "h": 185,
+              "rot": 2.9,
+              "file": "demo-022.jpg"
+            }
+          ],
+          "submittedAt": 1791792538223,
+          "flower": "pmv3lcwng",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmv4z0iun",
+      "flower": "blossom",
+      "pot": "sage",
+      "name": "Blossom",
+      "plantedAt": 1791792538223,
+      "bloomedAt": 1791882050258,
+      "entries": [
+        {
+          "at": 1791882050257,
+          "text": "new notebook, first page."
+        },
+        {
+          "at": 1791882050258,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1791810000000,
+          "items": [
+            {
+              "id": "w76",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "new notebook, first page."
+            },
+            {
+              "id": "p76-0",
+              "kind": "image",
+              "x": 64,
+              "y": 92,
+              "w": 150,
+              "h": 185,
+              "rot": -5.8,
+              "file": "demo-003.jpg"
+            }
+          ],
+          "submittedAt": 1791882050257,
+          "flower": "pmv4z0iun",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmv6gb2s1",
+      "flower": "nemophila",
+      "pot": "cream",
+      "name": "Baby blue eyes",
+      "plantedAt": 1791882050257,
+      "bloomedAt": 1791965735405,
+      "entries": [
+        {
+          "at": 1791965735404,
+          "text": "a good conversation about nothing."
+        },
+        {
+          "at": 1791965735405,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1791896400000,
+          "items": [
+            {
+              "id": "w77",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "a good conversation about nothing."
+            },
+            {
+              "id": "p77-0",
+              "kind": "image",
+              "x": 118,
+              "y": 100,
+              "w": 150,
+              "h": 185,
+              "rot": 7.1,
+              "file": "demo-002.jpg"
+            }
+          ],
+          "submittedAt": 1791965735404,
+          "flower": "pmv6gb2s1",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmv7u4qng",
+      "flower": "nemophila",
+      "pot": "ochre",
+      "name": "Baby blue eyes",
+      "plantedAt": 1791965735404,
+      "bloomedAt": 1792054038524,
+      "entries": [
+        {
+          "at": 1792054038522,
+          "text": "standing in the middle of the falls, completely still."
+        },
+        {
+          "at": 1792054038523,
+          "text": "a picture"
+        },
+        {
+          "at": 1792054038524,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1791982800000,
+          "items": [
+            {
+              "id": "w78",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "standing in the middle of the falls, completely still."
+            },
+            {
+              "id": "p78-0",
+              "kind": "image",
+              "x": -36,
+              "y": 104,
+              "w": 150,
+              "h": 185,
+              "rot": 15.6,
+              "file": "demo-020.jpg"
+            },
+            {
+              "id": "p78-1",
+              "kind": "image",
+              "x": 150,
+              "y": 118,
+              "w": 150,
+              "h": 185,
+              "rot": -10.4,
+              "file": "demo-021.jpg"
+            }
+          ],
+          "submittedAt": 1792054038522,
+          "flower": "pmv7u4qng",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.85
+    },
+    {
+      "id": "pmv9apdru",
+      "flower": "daisy",
+      "pot": "celadon",
+      "name": "Daisy patch",
+      "plantedAt": 1792054038522,
+      "bloomedAt": 1792137873659,
+      "entries": [
+        {
+          "at": 1792137873658,
+          "text": "took the stairs and the view."
+        },
+        {
+          "at": 1792137873659,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1792069200000,
+          "items": [
+            {
+              "id": "w79",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "took the stairs and the view."
+            },
+            {
+              "id": "p79-0",
+              "kind": "image",
+              "x": 92,
+              "y": 96,
+              "w": 150,
+              "h": 185,
+              "rot": 4.5,
+              "file": "demo-023.jpg"
+            }
+          ],
+          "submittedAt": 1792137873658,
+          "flower": "pmv9apdru",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmvaom9dm",
+      "flower": "blossom",
+      "pot": "clay",
+      "name": "Blossom",
+      "plantedAt": 1792137873658,
+      "bloomedAt": 1792226719274,
+      "entries": [
+        {
+          "at": 1792226719273,
+          "text": "wrote a letter by hand."
+        },
+        {
+          "at": 1792226719274,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1792155600000,
+          "items": [
+            {
+              "id": "w80",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "wrote a letter by hand."
+            },
+            {
+              "id": "p80-0",
+              "kind": "image",
+              "x": 64,
+              "y": 92,
+              "w": 150,
+              "h": 185,
+              "rot": -6.1,
+              "file": "demo-004.jpg"
+            }
+          ],
+          "submittedAt": 1792226719273,
+          "flower": "pmvaom9dm",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmvc5ij3d",
+      "flower": "jasmine",
+      "pot": "sage",
+      "name": "Jasmine",
+      "plantedAt": 1792226719273,
+      "bloomedAt": 1792311115899,
+      "entries": [
+        {
+          "at": 1792311115898,
+          "text": "fresh bread from the bakery."
+        },
+        {
+          "at": 1792311115899,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1792242000000,
+          "items": [
+            {
+              "id": "w81",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "fresh bread from the bakery."
+            },
+            {
+              "id": "p81-0",
+              "kind": "image",
+              "x": 118,
+              "y": 100,
+              "w": 150,
+              "h": 185,
+              "rot": 8.1,
+              "file": "demo-005.jpg"
+            }
+          ],
+          "submittedAt": 1792311115898,
+          "flower": "pmvc5ij3d",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmvdjrfy2",
+      "flower": "chrysanthemum",
+      "pot": "cream",
+      "name": "Chrysanthemum",
+      "plantedAt": 1792311115898,
+      "bloomedAt": 1792399924891,
+      "entries": [
+        {
+          "at": 1792399924890,
+          "text": "everything went to plan today."
+        },
+        {
+          "at": 1792399924891,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1792328400000,
+          "items": [
+            {
+              "id": "w82",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "everything went to plan today."
+            },
+            {
+              "id": "p82-0",
+              "kind": "image",
+              "x": 40,
+              "y": 108,
+              "w": 150,
+              "h": 185,
+              "rot": -3,
+              "file": "demo-008.jpg"
+            }
+          ],
+          "submittedAt": 1792399924890,
+          "flower": "pmvdjrfy2",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmvf0mxei",
+      "flower": "daisy",
+      "pot": "ochre",
+      "name": "Daisy patch",
+      "plantedAt": 1792399924890,
+      "bloomedAt": 1792485059475,
+      "entries": [
+        {
+          "at": 1792485059474,
+          "text": "spent the afternoon outside."
+        },
+        {
+          "at": 1792485059475,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1792414800000,
+          "items": [
+            {
+              "id": "w83",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "spent the afternoon outside."
+            },
+            {
+              "id": "p83-0",
+              "kind": "image",
+              "x": 92,
+              "y": 96,
+              "w": 150,
+              "h": 185,
+              "rot": 3.7,
+              "file": "demo-017.jpg"
+            }
+          ],
+          "submittedAt": 1792485059474,
+          "flower": "pmvf0mxei",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmvgfbno2",
+      "flower": "daisy",
+      "pot": "celadon",
+      "name": "Daisy patch",
+      "plantedAt": 1792485059474,
+      "bloomedAt": 1792572744606,
+      "entries": [
+        {
+          "at": 1792572744605,
+          "text": "thinking hard, in a good way."
+        },
+        {
+          "at": 1792572744606,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1792501200000,
+          "items": [
+            {
+              "id": "w84",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "thinking hard, in a good way."
+            },
+            {
+              "id": "p84-0",
+              "kind": "image",
+              "x": 64,
+              "y": 92,
+              "w": 150,
+              "h": 185,
+              "rot": -7.3,
+              "file": "demo-010.jpg"
+            }
+          ],
+          "submittedAt": 1792572744605,
+          "flower": "pmvgfbno2",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmvhvj1y5",
+      "flower": "iris",
+      "pot": "clay",
+      "name": "Iris",
+      "plantedAt": 1792572744605,
+      "bloomedAt": 1792659542937,
+      "entries": [
+        {
+          "at": 1792659542936,
+          "text": "sorted out the wardrobe. lighter."
+        },
+        {
+          "at": 1792659542937,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1792587600000,
+          "items": [
+            {
+              "id": "w85",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "sorted out the wardrobe. lighter."
+            },
+            {
+              "id": "p85-0",
+              "kind": "image",
+              "x": 118,
+              "y": 100,
+              "w": 150,
+              "h": 185,
+              "rot": 5.7,
+              "file": "demo-009.jpg"
+            }
+          ],
+          "submittedAt": 1792659542936,
+          "flower": "pmvhvj1y5",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmvjb7fyw",
+      "flower": "chrysanthemum",
+      "pot": "sage",
+      "name": "Chrysanthemum",
+      "plantedAt": 1792659542936,
+      "bloomedAt": 1792742487252,
+      "entries": [
+        {
+          "at": 1792742487251,
+          "text": "tried something scary and it went fine."
+        },
+        {
+          "at": 1792742487252,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1792674000000,
+          "items": [
+            {
+              "id": "w86",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "tried something scary and it went fine."
+            },
+            {
+              "id": "p86-0",
+              "kind": "image",
+              "x": 40,
+              "y": 108,
+              "w": 150,
+              "h": 185,
+              "rot": -3.5,
+              "file": "demo-010.jpg"
+            }
+          ],
+          "submittedAt": 1792742487251,
+          "flower": "pmvjb7fyw",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmvkol87n",
+      "flower": "daisy",
+      "pot": "cream",
+      "name": "Daisy patch",
+      "plantedAt": 1792742487251,
+      "bloomedAt": 1792831556276,
+      "entries": [
+        {
+          "at": 1792831556275,
+          "text": "quiet sunday, nowhere to be."
+        },
+        {
+          "at": 1792831556276,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1792760400000,
+          "items": [
+            {
+              "id": "w87",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "quiet sunday, nowhere to be."
+            },
+            {
+              "id": "p87-0",
+              "kind": "image",
+              "x": 92,
+              "y": 96,
+              "w": 150,
+              "h": 185,
+              "rot": 3.1,
+              "file": "demo-024.jpg"
+            }
+          ],
+          "submittedAt": 1792831556275,
+          "flower": "pmvkol87n",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmvm5mab7",
+      "flower": "chrysanthemum",
+      "pot": "ochre",
+      "name": "Chrysanthemum",
+      "plantedAt": 1792831556275,
+      "bloomedAt": 1792916726834,
+      "entries": [
+        {
+          "at": 1792916726833,
+          "text": "a hot drink on a cold morning."
+        },
+        {
+          "at": 1792916726834,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1792846800000,
+          "items": [
+            {
+              "id": "w88",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "a hot drink on a cold morning."
+            },
+            {
+              "id": "p88-0",
+              "kind": "image",
+              "x": 64,
+              "y": 92,
+              "w": 150,
+              "h": 185,
+              "rot": -5.9,
+              "file": "demo-001.jpg"
+            }
+          ],
+          "submittedAt": 1792916726833,
+          "flower": "pmvm5mab7",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmvnkbsc1",
+      "flower": "daisy",
+      "pot": "celadon",
+      "name": "Daisy patch",
+      "plantedAt": 1792916726833,
+      "bloomedAt": 1793005400675,
+      "entries": [
+        {
+          "at": 1793005400674,
+          "text": "the long way back along the water."
+        },
+        {
+          "at": 1793005400675,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1792933200000,
+          "items": [
+            {
+              "id": "w89",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "the long way back along the water."
+            },
+            {
+              "id": "p89-0",
+              "kind": "image",
+              "x": 118,
+              "y": 100,
+              "w": 150,
+              "h": 185,
+              "rot": 8.3,
+              "file": "demo-024.jpg"
+            }
+          ],
+          "submittedAt": 1793005400674,
+          "flower": "pmvnkbsc1",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmvp14dia",
+      "flower": "shrub",
+      "pot": "clay",
+      "name": "Shrub",
+      "plantedAt": 1793005400674,
+      "bloomedAt": 1793089224463,
+      "entries": [
+        {
+          "at": 1793089224462,
+          "text": "the commute was empty."
+        },
+        {
+          "at": 1793089224463,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1793019600000,
+          "items": [
+            {
+              "id": "w90",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "the commute was empty."
+            },
+            {
+              "id": "p90-0",
+              "kind": "image",
+              "x": 40,
+              "y": 108,
+              "w": 150,
+              "h": 185,
+              "rot": -4.4,
+              "file": "demo-006.jpg"
+            }
+          ],
+          "submittedAt": 1793089224462,
+          "flower": "pmvp14dia",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmvqf10cu",
+      "flower": "jasmine",
+      "pot": "sage",
+      "name": "Jasmine",
+      "plantedAt": 1793089224462,
+      "bloomedAt": 1793177239971,
+      "entries": [
+        {
+          "at": 1793177239970,
+          "text": "finished the week strong."
+        },
+        {
+          "at": 1793177239971,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1793106000000,
+          "items": [
+            {
+              "id": "w91",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "finished the week strong."
+            },
+            {
+              "id": "p91-0",
+              "kind": "image",
+              "x": 92,
+              "y": 96,
+              "w": 150,
+              "h": 185,
+              "rot": 3.3,
+              "file": "demo-003.jpg"
+            }
+          ],
+          "submittedAt": 1793177239970,
+          "flower": "pmvqf10cu",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmvrvfhk2",
+      "flower": "daisy",
+      "pot": "cream",
+      "name": "Daisy patch",
+      "plantedAt": 1793177239970,
+      "bloomedAt": 1793262848285,
+      "entries": [
+        {
+          "at": 1793262848284,
+          "text": "slept in again. no guilt."
+        },
+        {
+          "at": 1793262848285,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1793192400000,
+          "items": [
+            {
+              "id": "w92",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "slept in again. no guilt."
+            },
+            {
+              "id": "p92-0",
+              "kind": "image",
+              "x": 64,
+              "y": 92,
+              "w": 150,
+              "h": 185,
+              "rot": -4.6,
+              "file": "demo-002.jpg"
+            }
+          ],
+          "submittedAt": 1793262848284,
+          "flower": "pmvrvfhk2",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmvtaedcs",
+      "flower": "nemophila",
+      "pot": "ochre",
+      "name": "Baby blue eyes",
+      "plantedAt": 1793262848284,
+      "bloomedAt": 1793348032568,
+      "entries": [
+        {
+          "at": 1793348032567,
+          "text": "a long lunch in the sun."
+        },
+        {
+          "at": 1793348032568,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1793278800000,
+          "items": [
+            {
+              "id": "w93",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "a long lunch in the sun."
+            },
+            {
+              "id": "p93-0",
+              "kind": "image",
+              "x": 118,
+              "y": 100,
+              "w": 150,
+              "h": 185,
+              "rot": 7.4,
+              "file": "demo-007.jpg"
+            }
+          ],
+          "submittedAt": 1793348032567,
+          "flower": "pmvtaedcs",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmvup45yv",
+      "flower": "nemophila",
+      "pot": "celadon",
+      "name": "Baby blue eyes",
+      "plantedAt": 1793348032567,
+      "bloomedAt": 1793434019877,
+      "entries": [
+        {
+          "at": 1793434019876,
+          "text": "a quiet hike, just me and the birds."
+        },
+        {
+          "at": 1793434019877,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1793365200000,
+          "items": [
+            {
+              "id": "w94",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "a quiet hike, just me and the birds."
+            },
+            {
+              "id": "p94-0",
+              "kind": "image",
+              "x": 40,
+              "y": 108,
+              "w": 150,
+              "h": 185,
+              "rot": -2.8,
+              "file": "demo-018.jpg"
+            }
+          ],
+          "submittedAt": 1793434019876,
+          "flower": "pmvup45yv",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmvw4b678",
+      "flower": "nemophila",
+      "pot": "clay",
+      "name": "Baby blue eyes",
+      "plantedAt": 1793434019876,
+      "bloomedAt": 1793524002751,
+      "entries": [
+        {
+          "at": 1793524002750,
+          "text": "the jacket pattern finally fits."
+        },
+        {
+          "at": 1793524002751,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1793451600000,
+          "items": [
+            {
+              "id": "w95",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "the jacket pattern finally fits."
+            },
+            {
+              "id": "p95-0",
+              "kind": "image",
+              "x": 92,
+              "y": 96,
+              "w": 150,
+              "h": 185,
+              "rot": 2.8,
+              "file": "demo-004.jpg"
+            }
+          ],
+          "submittedAt": 1793524002750,
+          "flower": "pmvw4b678",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmvxlvtfi",
+      "flower": "blossom",
+      "pot": "sage",
+      "name": "Blossom",
+      "plantedAt": 1793524002750,
+      "bloomedAt": 1793607847952,
+      "entries": [
+        {
+          "at": 1793607847951,
+          "text": "planted basil on the balcony."
+        },
+        {
+          "at": 1793607847952,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1793538000000,
+          "items": [
+            {
+              "id": "w96",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "planted basil on the balcony."
+            },
+            {
+              "id": "p96-0",
+              "kind": "image",
+              "x": 64,
+              "y": 92,
+              "w": 150,
+              "h": 185,
+              "rot": -7.3,
+              "file": "demo-011.jpg"
+            }
+          ],
+          "submittedAt": 1793607847951,
+          "flower": "pmvxlvtfi",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmvyzswsv",
+      "flower": "iris",
+      "pot": "cream",
+      "name": "Iris",
+      "plantedAt": 1793607847951,
+      "bloomedAt": 1793694978699,
+      "entries": [
+        {
+          "at": 1793694978698,
+          "text": "a whole afternoon with nothing scheduled."
+        },
+        {
+          "at": 1793694978699,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1793624400000,
+          "items": [
+            {
+              "id": "w97",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "a whole afternoon with nothing scheduled."
+            },
+            {
+              "id": "p97-0",
+              "kind": "image",
+              "x": 118,
+              "y": 100,
+              "w": 150,
+              "h": 185,
+              "rot": 5.6,
+              "file": "demo-005.jpg"
+            }
+          ],
+          "submittedAt": 1793694978698,
+          "flower": "pmvyzswsv",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmw0fofbe",
+      "flower": "iris",
+      "pot": "ochre",
+      "name": "Iris",
+      "plantedAt": 1793694978698,
+      "bloomedAt": 1793782103318,
+      "entries": [
+        {
+          "at": 1793782103317,
+          "text": "grateful for all of it."
+        },
+        {
+          "at": 1793782103318,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1793710800000,
+          "items": [
+            {
+              "id": "w98",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "grateful for all of it."
+            },
+            {
+              "id": "p98-0",
+              "kind": "image",
+              "x": 40,
+              "y": 108,
+              "w": 150,
+              "h": 185,
+              "rot": -3.1,
+              "file": "demo-008.jpg"
+            }
+          ],
+          "submittedAt": 1793782103317,
+          "flower": "pmw0fofbe",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.7749999999999999
+    },
+    {
+      "id": "pmw1vjt3p",
+      "flower": "nemophila",
+      "pot": "celadon",
+      "name": "Baby blue eyes",
+      "plantedAt": 1793782103317,
+      "bloomedAt": 1793866424351,
+      "entries": [
+        {
+          "at": 1793866424349,
+          "text": "creek again. it's becoming my place."
+        },
+        {
+          "at": 1793866424350,
+          "text": "a picture"
+        },
+        {
+          "at": 1793866424351,
+          "text": "a picture"
+        }
+      ],
+      "days": [
+        {
+          "date": 1793797200000,
+          "items": [
+            {
+              "id": "w99",
+              "kind": "text",
+              "x": 13,
+              "y": 21,
+              "text": "creek again. it's becoming my place."
+            },
+            {
+              "id": "p99-0",
+              "kind": "image",
+              "x": 6,
+              "y": 96,
+              "w": 150,
+              "h": 185,
+              "rot": -7.9,
+              "file": "demo-022.jpg"
+            },
+            {
+              "id": "p99-1",
+              "kind": "image",
+              "x": 140,
+              "y": 140,
+              "w": 150,
+              "h": 185,
+              "rot": 5.2,
+              "file": "demo-023.jpg"
+            }
+          ],
+          "submittedAt": 1793866424349,
+          "flower": "pmw1vjt3p",
+          "grew": [
+            0,
+            1
+          ]
+        }
+      ],
+      "size": 0.85
+    }
+  ],
+  "today": {
+    "date": 1793883600000,
+    "items": []
+  }
+}

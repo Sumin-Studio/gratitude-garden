@@ -317,16 +317,31 @@ ipcMain.on('sip:demo-scene', (_e, scene: unknown) => {
   if (scene === 'day1') next = initialState(now)
   if (scene === 'days100') {
     try {
-      const raw = JSON.parse(fs.readFileSync(join(app.getPath('userData'), 'demo-100.json'), 'utf8'))
+      // One you built yourself (scripts/demo-diary.mts) wins; otherwise the
+      // one that ships with the app, its photos copied into media.
+      const own = join(app.getPath('userData'), 'demo-100.json')
+      const dir = demoDir()
+      const raw = JSON.parse(fs.readFileSync(fs.existsSync(own) ? own : join(dir, 'demo-100.json'), 'utf8'))
+      if (!fs.existsSync(own)) {
+        fs.mkdirSync(mediaDir(), { recursive: true })
+        for (const f of fs.readdirSync(join(dir, 'media'))) fs.copyFileSync(join(dir, 'media', f), join(mediaDir(), f))
+      }
       next = normalize(raw, now)
       next = { ...next, today: { date: next.today.date, items: [] } }
-    } catch {
-      console.warn('demo: no demo-100.json in the app folder')
+    } catch (e) {
+      console.warn('demo: no 100-day diary to load', e)
     }
   }
   if (!next) return
   commit(demo?.seed ? seedAs(next, demo.seed) : next)
 })
+
+/** The 100-day demo that ships with the app (src/renderer/public/demo): in
+ * the built renderer once packaged, in the source while developing. */
+function demoDir() {
+  const built = join(__dirname, '../renderer/demo')
+  return fs.existsSync(built) ? built : join(app.getAppPath(), 'src/renderer/public/demo')
+}
 
 /** Today as it was before Submit (demo): the flower back to a seed, the page
  * open again, its garden picture gone. */

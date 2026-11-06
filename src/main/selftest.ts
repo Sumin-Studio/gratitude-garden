@@ -330,6 +330,12 @@ export async function runSelfTest({ pad, getState, tray }: TestCtx) {
   await js(`window.sip.demoScene('day1'), true`)
   await wait(300)
   results.demoDayOne = getState().garden.length === 0 && getState().plant.flower === 'lotus' && today().items.length === 0
+  // "100 days" on a fresh install: the diary and photos that ship with the app.
+  await js(`window.sip.demoScene('days100'), true`)
+  await wait(800)
+  const shipped = getState().garden
+  const print = shipped.flatMap((f) => f.days.flatMap((d) => d.items)).find((i) => i.kind === 'image')?.file
+  results.demoHundredShips = shipped.length === 100 && !!print && existsSync(mediaFile(print))
 
   // 12. Pop the menu open and photograph the screen.
   step('12')

@@ -22,7 +22,49 @@ const spec = JSON.parse(fs.readFileSync(specPath, 'utf8')) as { end: string; day
 let seed = 11
 const rnd = () => ((seed = (Math.imul(seed, 1103515245) + 12345) >>> 0) / 4294967296)
 
-// ---- Photos into media, and their shape as shown (EXIF turns respected) ----
+/** A JPEG without its metadata: drops EXIF and XMP (APP1), IPTC (APP13), the
+ * other application blocks but JFIF (APP0) and the colour profile (APP2), and
+ * comments. */
+function bare(b: Buffer): Buffer {
+  const out: Buffer[] = [b.subarray(0, 2)]
+  let i = 2
+  while (i < b.length && b[i] === 0xff) {
+    const m = b[i + 1]
+    if (m === 0xda) {
+      out.push(b.subarray(i))
+      break
+    }
+    const len = b.readUInt16BE(i + 2)
+    const keep = !(m === 0xe1 || m === 0xed || m === 0xfe || (m >= 0xe3 && m <= 0xef))
+    if (keep) out.push(b.subarray(i, i + 2 + len))
+    i += 2 + len
+  }
+  return Buffer.concat(out)
+}
+
+/** The camera's EXIF orientation (1 upright, 6 turn 90° clockwise, 8 turn
+ * 270°, 3 turn 180°); sips doesn't report it for every JPEG. */
+function orientation(b: Buffer): number {
+  let i = 2
+  while (i < b.length - 4 && b[i] === 0xff) {
+    const m = b[i + 1]
+    const len = b.readUInt16BE(i + 2)
+    if (m === 0xe1 && b.subarray(i + 4, i + 10).toString('latin1') === 'Exif\0\0') {
+      const t = b.subarray(i + 10, i + 2 + len)
+      const le = t.subarray(0, 2).toString('latin1') === 'II'
+      const u16 = (o: number) => (le ? t.readUInt16LE(o) : t.readUInt16BE(o))
+      const u32 = (o: number) => (le ? t.readUInt32LE(o) : t.readUInt32BE(o))
+      const ifd = u32(4)
+      for (let k = 0; k < u16(ifd); k++) if (u16(ifd + 2 + 12 * k) === 0x0112) return u16(ifd + 2 + 12 * k + 8)
+      return 1
+    }
+    if (m === 0xda) break
+    i += 2 + len
+  }
+  return 1
+}
+
+// ---- Photos into media, upright and bare ----
 const media = join(out, 'media')
 fs.mkdirSync(media, { recursive: true })
 const prop = (file: string, key: string) => execFileSync('sips', ['-g', key, file], { encoding: 'utf8' }).match(new RegExp(`${key}: (\\S+)`))?.[1]
@@ -32,11 +74,15 @@ for (const d of spec.days)
   for (const src of d.photos) {
     if (copied.has(src)) continue
     const file = `demo-${String(++n).padStart(3, '0')}.jpg`
-    execFileSync('sips', ['-s', 'format', 'jpeg', '-s', 'formatOptions', '82', '-Z', '1400', src, '--out', join(media, file)], { stdio: 'ignore' })
-    const w = Number(prop(join(media, file), 'pixelWidth'))
-    const h = Number(prop(join(media, file), 'pixelHeight'))
-    const turned = Number(prop(join(media, file), 'orientation') ?? 1) >= 5
-    copied.set(src, { file, aspect: turned ? w / h : h / w })
+    const dst = join(media, file)
+    // Resized, turned upright (the camera's orientation tag is lost on the
+    // way, so the pixels are turned instead), and every bit of metadata
+    // (location, camera, dates) removed: these can end up in a public repo.
+    const turn = ({ 3: 180, 6: 90, 8: 270 } as Record<number, number>)[orientation(fs.readFileSync(src))]
+    execFileSync('sips', ['-s', 'format', 'jpeg', '-s', 'formatOptions', '82', '-Z', '1400', src, '--out', dst], { stdio: 'ignore' })
+    if (turn) execFileSync('sips', ['-r', String(turn), dst], { stdio: 'ignore' })
+    fs.writeFileSync(dst, bare(fs.readFileSync(dst)))
+    copied.set(src, { file, aspect: Number(prop(dst, 'pixelHeight')) / Number(prop(dst, 'pixelWidth')) })
   }
 
 // ---- Pages: the words at the top, prints stuck on crooked below ----
