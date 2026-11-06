@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { TimeArt, WeatherArt } from './Dithered'
 import { view } from './Look'
 import { tune } from './paint'
+import { bridge } from '../store'
 import { GLASS_DEFAULTS, GLASS_GROUPS, glassText, loadGlass, onGlass, saveGlass, type Glass } from '../ui/glass'
 
 // The garden's dials, after the pixel-art farm panel (.claude/ref): a dark
@@ -236,11 +237,11 @@ export function Tune({ initialOpen = false }: { initialOpen?: boolean } = {}) {
   // every time, and a reset for another take.
   const [demo, setDemoState] = useState({ replay: false, lotus: false })
   useEffect(() => {
-    void window.sip?.getDemo().then(setDemoState)
+    void bridge.getDemo().then(setDemoState)
   }, [])
   const setDemo = (d: { replay: boolean; lotus: boolean }) => {
     setDemoState(d)
-    window.sip?.setDemo(d)
+    bridge.setDemo(d)
   }
   const set = (next: Record<Dial, number>) => {
     setValues(next)
@@ -325,13 +326,13 @@ export function Tune({ initialOpen = false }: { initialOpen?: boolean } = {}) {
               <Toggle label="Replay today" on={demo.replay} onChange={(replay) => setDemo({ ...demo, replay })} />
               <Toggle label="Lotus every time" on={demo.lotus} onChange={(lotus) => setDemo({ ...demo, lotus })} />
               <div className="tune-chips">
-                <button className="tune-chip" onClick={() => window.sip?.resetToday()}>
+                <button className="tune-chip" onClick={() => bridge.resetToday()}>
                   Reset today
                 </button>
-                <button className="tune-chip" onClick={() => window.sip?.demoScene('day1')}>
+                <button className="tune-chip" onClick={() => bridge.demoScene('day1')}>
                   Day 1
                 </button>
-                <button className="tune-chip" onClick={() => window.sip?.demoScene('days100')}>
+                <button className="tune-chip" onClick={() => bridge.demoScene('days100')}>
                   100 days
                 </button>
               </div>

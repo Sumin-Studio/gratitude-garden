@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react'
 import type { CapturePose, SipBridge } from '../../shared/bridge'
-import { reopenToday,
+import {
   addEntry,
+  initialState,
   gardenView,
   normalize,
   phaseAt,
   PLANT_HOLD_MS,
   plantToGarden,
+  reopenToday,
   setToday,
   submitDay,
   visitFor,
@@ -86,7 +88,18 @@ function mockBridge(): SipBridge {
     getDemo: async () => ({ replay: false, lotus: false }),
     setDemo: noop,
     resetToday: () => commit(reopenToday(diary)),
-    demoScene: noop,
+    // The Demo controls in the browser: day 1 here, the 100 days from
+    // /demo-100.json if the preview serves one.
+    demoScene: (scene) => {
+      if (scene === 'day1') return commit(initialState(Date.now()))
+      void fetch('/demo-100.json')
+        .then((r) => (r.ok ? r.json() : null))
+        .then((raw) => {
+          if (!raw) return console.warn('demo: no /demo-100.json in the preview')
+          const s = normalize(raw, Date.now())
+          commit({ ...s, today: { date: s.today.date, items: [] } })
+        })
+    },
     visitGarden: () => {
       const v = visitFor(diary)
       window.open(`/garden.html${v ? `?visit=${v.id},${v.from},${v.to}` : ''}`, 'sip-garden', 'width=900,height=650')

@@ -321,6 +321,16 @@ export async function runSelfTest({ pad, getState, tray }: TestCtx) {
   await press('Escape')
   await wait(350)
 
+  // 11b. The garden's Demo controls: reset today reopens the page; Day 1 is a
+  // brand-new garden with a lotus seed.
+  step('11b')
+  await js(`window.sip.resetToday(), true`)
+  await wait(300)
+  results.demoResetReopens = !today().submittedAt && today().items.length > 0
+  await js(`window.sip.demoScene('day1'), true`)
+  await wait(300)
+  results.demoDayOne = getState().garden.length === 0 && getState().plant.flower === 'lotus' && today().items.length === 0
+
   // 12. Pop the menu open and photograph the screen.
   step('12')
   if (process.env.SIP_SELFTEST_TRAY) {
