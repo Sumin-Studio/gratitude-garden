@@ -120,6 +120,16 @@ export function Garden({ flowers, capture, callout = true, looker, onReady, focu
     [flowers, spots]
   )
   useMemo(() => bakeDapple(casters(spots)), [spots])
+  // The timelapse repaints the plants' shade on the lawn with only those
+  // grown so far (main.tsx sends their ids; null puts every plant back).
+  useEffect(() => {
+    const grown = (e: Event) => {
+      const ids = (e as CustomEvent<Set<string> | null>).detail
+      bakeDapple(casters(ids ? spots.filter((_, i) => ids.has(flowers[i]?.id)) : spots))
+    }
+    window.addEventListener('sip-lapse-shade', grown)
+    return () => window.removeEventListener('sip-lapse-shade', grown)
+  }, [spots, flowers])
   useEffect(() => {
     if (focus !== null && !flowers[focus]) pick(null)
   }, [focus, flowers, pick])

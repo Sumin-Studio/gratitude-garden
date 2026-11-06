@@ -83,8 +83,16 @@ export function inWater(x: number, z: number): [number, number] {
 }
 
 /** Somewhere on the lawn in view, kept off the pond and its bank. */
+/** The lawn's left edge: in the back (behind the pond) it runs on past the
+ * pond's side to the maple, so flowers can grow beside the tree (Simon); in
+ * front, the pond runs off the frame. */
+const leftOf = (z: number) => (z < 3 ? -10.5 : IN_VIEW + 0.4)
+/** The lawn's right edge: nothing grows past here (Simon: the right of the
+ * frame stays open), about x 4 in the back to 5.8 in front. */
+const rightOf = (z: number) => 4.2 + 0.1 * (z + 4.5)
+
 export function onLand(x: number, z: number): [number, number] {
-  x = Math.min(Math.max(x, IN_VIEW + 0.4), 11)
+  x = Math.min(Math.max(x, leftOf(z)), rightOf(z))
   z = Math.min(Math.max(z, -4.5), 11)
   const d = pondDist(x, z)
   if (d >= 0.28) return [x, z]
@@ -93,7 +101,7 @@ export function onLand(x: number, z: number): [number, number] {
 }
 
 /** Clear of the pond and its bank, and on the lawn in view: what onLand keeps. */
-const fits = (x: number, z: number) => x >= IN_VIEW + 0.4 && x <= 11 && z >= -4.5 && z <= 11 && pondDist(x, z) >= 0.28
+const fits = (x: number, z: number) => x >= leftOf(z) && x <= rightOf(z) && z >= -4.5 && z <= 11 && pondDist(x, z) >= 0.28
 
 /** Where a carried flower may stand: in the water for a lotus, on the grass for the rest. */
 export const settle = (s: Slot, x: number, z: number) => (s.land ? onLand(x, z) : inWater(x, z))
@@ -122,18 +130,63 @@ const drift = (x: number, z: number, n: number, r: number, size?: number): Drift
  * and the first group of every kind sits round the pond's right bank (the
  * heart of the picture), so a garden of five flowers is already a planting,
  * not a scatter. Past every group's capacity, each widens in turn. */
+// (Simon 2026-11-06: the groups right of x 2 moved 2 to the left, and those
+// still past the right edge (rightOf) moved to the back shore under the
+// maple, so the planting gathers on the left and the tree frames it.)
 const DRIFTS: Record<string, Drift[]> = {
-  shrub: [drift(0.2, -3.5, 1, 0), drift(5.9, -3.8, 1, 0), drift(-2.8, -3.9, 1, 0), drift(8.3, -2.3, 1, 0)],
-  blossom: [drift(1.3, -1.7, 3, 0.5), drift(7.1, -3.1, 5, 0.75), drift(-1.2, -2.7, 3, 0.5), drift(4.6, -3.8, 1, 0), drift(4.9, 2.3, 1, 0)],
-  chrysanthemum: [drift(1.9, 1.5, 3, 0.55), drift(7.2, -0.5, 3, 0.6), drift(4.4, -0.9, 1, 0), drift(-0.9, -0.4, 3, 0.5), drift(2.9, 3.0, 1, 0)],
-  iris: [drift(1.2, 3.6, 3, 0.45), drift(-4.4, 1.3, 5, 0.75), drift(7.5, 5.6, 3, 0.55), drift(-0.3, 9.3, 1, 0)],
-  lily: [drift(-2.3, -1.0, 5, 0.7), drift(-4.9, 0.5, 3, 0.5), drift(-3.8, -2.6, 3, 0.45), drift(-6.6, 1.9, 1, 0)],
-  jasmine: [drift(6.0, 3.7, 3, 0.75), drift(2.6, 8.5, 1, 0), drift(8.2, 8.0, 1, 0)],
-  daisy: [drift(1.3, 7.3, 1, 0, 1.5), drift(5.4, 10.0, 3, 1.3, 1.55), drift(2.3, 10.6, 1, 0, 1.4), drift(-4.6, 10.6, 1, 0, 1.45), drift(8.0, 10.3, 1, 0, 1.35)],
-  nemophila: [drift(-0.9, 3.4, 1, 0, 1.4), drift(7.1, 7.4, 3, 1.1, 1.45), drift(4.6, 6.7, 1, 0, 1.25), drift(-2.4, 10.9, 1, 0, 1.4)]
+  shrub: [drift(0.2, -3.5, 1, 0), drift(3.9, -3.8, 1, 0), drift(-2.8, -3.9, 1, 0), drift(-7.6, -3.9, 1, 0)],
+  blossom: [drift(1.3, -1.7, 3, 0.5), drift(-5.4, -4.1, 5, 0.95), drift(-1.2, -2.7, 3, 0.5), drift(2.6, -3.8, 1, 0), drift(2.9, 2.3, 1, 0)],
+  chrysanthemum: [drift(1.9, 1.5, 3, 0.55), drift(2.6, -1.6, 3, 0.6), drift(3.4, 0.2, 1, 0), drift(0.2, 0.2, 3, 0.5), drift(3.6, 1.8, 1, 0)],
+  iris: [drift(1.2, 3.6, 3, 0.45), drift(-4.4, 1.3, 5, 0.75), drift(3.6, 6.2, 3, 0.55), drift(-0.3, 9.3, 1, 0)],
+  lily: [drift(-2.3, -1.0, 5, 0.7), drift(-5.6, -0.4, 3, 0.5), drift(-3.8, -2.6, 3, 0.45), drift(-6.6, 1.9, 1, 0)],
+  jasmine: [drift(4.0, 3.7, 3, 0.75), drift(0.6, 8.5, 1, 0), drift(4.2, 8.6, 1, 0)],
+  daisy: [],
+  nemophila: []
 }
+/** The ground patches (daisy, baby blue eyes) spread over the open lawn as a
+ * meadow, not heaped in a few beds (Simon): places on a jittered grid over
+ * the lawn, clear of the pond and of every other kind's groups, taken in
+ * farthest-first order from the pond's right bank, so the first few are
+ * already spread across the garden and later ones fill the gaps. The two
+ * kinds take alternate places, one patch each. */
+const GROUND: [number, number][] = (() => {
+  const rnd = mulberry(23)
+  const beds = Object.entries(DRIFTS).flatMap(([, ds]) => ds)
+  const open: [number, number][] = []
+  for (let x = -10; x <= 9; x += 1.0)
+    for (let z = -4.2; z <= 10.8; z += 1.0) {
+      const px = x + (rnd() - 0.5) * 0.55
+      const pz = z + (rnd() - 0.5) * 0.55
+      if (!fits(px, pz) || pondDist(px, pz) < 0.4) continue
+      if (beds.some((d) => Math.hypot(px - d.at[0], pz - d.at[1]) < 1.2 * Math.max(d.r, 0.55) + 0.6)) continue
+      open.push([px, pz])
+    }
+  const order: [number, number][] = []
+  let next = open.reduce((b, p) => (Math.hypot(p[0] - 1, p[1] - 4) < Math.hypot(b[0] - 1, b[1] - 4) ? p : b))
+  while (open.length) {
+    order.push(next)
+    open.splice(open.indexOf(next), 1)
+    if (!open.length) break
+    next = open.reduce((b, p) => (near(p) > near(b) ? p : b))
+  }
+  function near(p: [number, number]) {
+    return Math.min(...order.map((q) => Math.hypot(p[0] - q[0], p[1] - q[1])))
+  }
+  // Both kinds start by the pond: the second place (baby blue eyes' first) is
+  // the next nearest to it, not the farthest.
+  let j = 1
+  for (let k = 2; k < order.length; k++) if (Math.hypot(order[k][0] - 1, order[k][1] - 4) < Math.hypot(order[j][0] - 1, order[j][1] - 4)) j = k
+  ;[order[1], order[j]] = [order[j], order[1]]
+  return order
+})()
+DRIFTS.daisy = GROUND.filter((_, i) => i % 2 === 0).map(([x, z], i) => drift(x, z, 1, 0, 1.35 + (i % 3) * 0.08))
+DRIFTS.nemophila = GROUND.filter((_, i) => i % 2 === 1).map(([x, z], i) => drift(x, z, 1, 0, 1.3 + (i % 3) * 0.08))
+
 /** How big each kind stands, against the lotus: its size and how much that varies. */
 const SIZE = { shrub: [1.05, 0.16], blossom: [1.02, 0.2], chrysanthemum: [0.74, 0.14], iris: [1.04, 0.16], lily: [0.74, 0.14], jasmine: [0.88, 0.14], daisy: [1.0, 0.14], nemophila: [1.0, 0.14] } as Record<string, [number, number]>
+
+/** How far a group's plants stand apart, against its radius. */
+const SPREAD = 1.5
 
 /** How many of a kind the beds hold before they start to widen. */
 export const bedRoom = (kind: string) => (DRIFTS[kind] ?? DRIFTS.chrysanthemum).reduce((n, d) => n + d.n, 0)
@@ -152,7 +205,9 @@ export function bedSlot(kind: string, k: number): Slot {
   const j = left + round * d.n
   const rnd = mulberry(kind.length * 101 + k * 7 + 3)
   // A wider ring each round, so a single still gets company, never a stack.
-  const r = d.n === 1 && round === 0 ? 0 : Math.max(d.r, 0.55) * Math.sqrt((j + 0.45) / Math.max(d.n, 1.6))
+  // Spread out within a group, so a bed reads as plants side by side, not one
+  // heap (Simon): half as wide again as it was.
+  const r = d.n === 1 && round === 0 ? 0 : SPREAD * Math.max(d.r, 0.55) * Math.sqrt((j + 0.45) / Math.max(d.n, 1.6))
   const a = j * 2.39996 + d.at[0] * 1.7 + g
   const wild = 0.12 + 0.1 * d.r
   const jx = (rnd() - 0.5) * wild
@@ -191,18 +246,19 @@ export function slots(n: number): Slot[] {
 /** The maple at the back-left: its trunk, and its foliage as flat layered
  * plates, the way a Japanese maple grows, reaching out over the lawn. Centre
  * and radii of each plate. */
+/** (Moved 2 to the right of where it first stood, Simon 2026-11-06.) */
 export const MAPLE = {
-  trunk: [-11.8, -5.3] as [number, number],
+  trunk: [-9.8, -5.3] as [number, number],
   plates: [
-    { at: [-9.7, 8.4, -6.0], r: [3.6, 1.0, 2.6] },
-    { at: [-12.2, 7.4, -5.0], r: [4.2, 1.2, 3.0] },
-    { at: [-9.0, 7.0, -2.6], r: [4.0, 1.1, 2.8] },
-    { at: [-5.6, 6.6, -1.6], r: [3.4, 1.0, 2.4] },
-    { at: [-3.0, 6.9, -3.8], r: [2.6, 0.8, 2.0] },
-    { at: [-14.2, 6.2, -2.0], r: [3.0, 1.0, 2.3] },
-    { at: [-11.2, 5.6, -0.4], r: [3.2, 1.0, 2.3] },
-    { at: [-7.8, 5.0, 0.8], r: [2.8, 0.85, 2.0] },
-    { at: [-4.4, 4.8, 1.0], r: [2.0, 0.65, 1.5] }
+    { at: [-7.7, 8.4, -6.0], r: [3.6, 1.0, 2.6] },
+    { at: [-10.2, 7.4, -5.0], r: [4.2, 1.2, 3.0] },
+    { at: [-7.0, 7.0, -2.6], r: [4.0, 1.1, 2.8] },
+    { at: [-3.6, 6.6, -1.6], r: [3.4, 1.0, 2.4] },
+    { at: [-1.0, 6.9, -3.8], r: [2.6, 0.8, 2.0] },
+    { at: [-12.2, 6.2, -2.0], r: [3.0, 1.0, 2.3] },
+    { at: [-9.2, 5.6, -0.4], r: [3.2, 1.0, 2.3] },
+    { at: [-5.8, 5.0, 0.8], r: [2.8, 0.85, 2.0] },
+    { at: [-2.4, 4.8, 1.0], r: [2.0, 0.65, 1.5] }
   ] as { at: [number, number, number]; r: [number, number, number] }[]
 }
 
@@ -211,8 +267,8 @@ export const MAPLE = {
 export const GRASSES: [number, number, number][] = [
   [1.5, 5.6, 1.6],
   [-1.7, 1.0, 1.25],
-  [3.9, 10.2, 1.4],
-  [9.3, 4.6, 1.4],
-  [3.2, -2.6, 1.2],
+  [1.9, 10.2, 1.4],
+  [-8.4, -1.8, 1.4],
+  [1.2, -2.6, 1.2],
   [-5.4, 1.5, 1.2]
 ]

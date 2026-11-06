@@ -30,7 +30,7 @@ import { getGardenWindow, openGardenWindow } from './garden'
 import { createPad, expectBlur, getPad, hidePad, showPad } from './pad'
 import { padShotState, runPadShot } from './padshot'
 import { snapGarden } from './snap'
-import { readDemo, type Demo } from './demo'
+import { readDemo, writeDemo, type Demo } from './demo'
 import { runSelfTest } from './selftest'
 import { createTray, refreshTray, resourcePath, trayBounds, trayTest } from './tray'
 
@@ -301,6 +301,41 @@ ipcMain.handle('sip:media-add', (_e, bytes: unknown, ext: unknown) => {
 })
 ipcMain.handle('sip:audio-add', (_e, bytes: unknown) => (okBytes(bytes, 50_000_000) ? keepFile(audioDir(), bytes, 'webm') : null))
 ipcMain.on('sip:visit-garden', () => visitGarden())
+// Demo mode from the garden's Fine tune: the same as demo.json.
+ipcMain.handle('sip:demo-get', () => ({ replay: !!demo?.replay, lotus: demo?.seed === 'lotus' }))
+ipcMain.on('sip:demo-set', (_e, d: unknown) => {
+  const r = d as { replay?: unknown; lotus?: unknown } | null
+  demo = { replay: r?.replay === true, seed: r?.lotus === true ? 'lotus' : null }
+  writeDemo(demo)
+  if (demo.seed) commit(seedAs(state, demo.seed))
+})
+ipcMain.on('sip:demo-reset', () => resetToday())
+// Demo scenes: day 1 (a new garden, a lotus seed) or the 100-day diary.
+ipcMain.on('sip:demo-scene', (_e, scene: unknown) => {
+  const now = Date.now()
+  let next: DiaryState | null = null
+  if (scene === 'day1') next = initialState(now)
+  if (scene === 'days100') {
+    try {
+      const raw = JSON.parse(fs.readFileSync(join(app.getPath('userData'), 'demo-100.json'), 'utf8'))
+      next = normalize(raw, now)
+      next = { ...next, today: { date: next.today.date, items: [] } }
+    } catch {
+      console.warn('demo: no demo-100.json in the app folder')
+    }
+  }
+  if (!next) return
+  commit(demo?.seed ? seedAs(next, demo.seed) : next)
+})
+
+/** Today as it was before Submit (demo): the flower back to a seed, the page
+ * open again, its garden picture gone. */
+function resetToday() {
+  if (!state.today.submittedAt) return
+  const shot = state.today.window
+  if (shot) fs.rmSync(join(mediaDir(), shot), { force: true })
+  commit(reopenToday(state))
+}
 // Tuning the glass: the pad stays open under its icon while you work in the
 // garden, and goes back to closing on a click away when you're done.
 ipcMain.on('sip:pad-pin', (_e, on: unknown) => {
@@ -575,10 +610,7 @@ if (!HEADLESS && !app.requestSingleInstanceLock()) {
     const pad = createPad(HEADLESS)
     // Demo replay: opening the pad after a Submit puts today back as it was.
     pad.on('show', () => {
-      if (!demo?.replay || !state.today.submittedAt) return
-      const shot = state.today.window
-      if (shot) fs.rmSync(join(mediaDir(), shot), { force: true })
-      commit(reopenToday(state))
+      if (demo?.replay && state.today.submittedAt) resetToday()
     })
     createTray()
     if (!HEADLESS) {

@@ -50,7 +50,8 @@ export function Backdrop() {
         float bird(vec2 p, float flap) {
           float wing = abs(p.x);
           float y = p.y - wing * flap + wing * wing * 1.4;
-          return step(wing, 0.11) * (1.0 - smoothstep(0.02, 0.034, abs(y)));
+          // A fine line (Simon: subtler birds).
+          return step(wing, 0.1) * (1.0 - smoothstep(0.011, 0.02, abs(y)));
         }
         void main() {
           float x = vP.x;
@@ -91,7 +92,7 @@ export function Backdrop() {
               float side = mod(fi, 2.0) * 2.0 - 1.0;
               vec2 o = vec2((k == 1 ? -1.0 : 1.0) * -0.32 * ceil(fi / 2.0), 0.13 * ceil(fi / 2.0) * side);
               float flap = 0.55 * sin(uTime * 7.0 + fi * 1.7 + fk * 3.0);
-              col = mix(col, ${c('#59646e')}, bird(at - o, flap) * 0.9);
+              col = mix(col, ${c('#7d8a95')}, bird(at - o, flap) * 0.45);
             }
           }
 
@@ -113,14 +114,15 @@ export function Backdrop() {
           lake = mix(lake, ${c('#5f8f8a')}, mirrored * 0.45 * (0.8 + 0.2 * ripple));
           // Light along the far shore.
           lake = mix(lake, ${c('#eef6f8')}, smoothstep(0.86, 0.97, t) * (1.0 - smoothstep(0.97, 1.0, t)) * 0.7);
-          // Now and then a boat crosses, slow, smaller the further out it
-          // sails, trailing a pale line on the water.
-          for (int k = 0; k < 3; k++) {
+          // Boats out on the lake, slow, at different distances, smaller the
+          // further out each sails, trailing a pale line on the water; several
+          // are usually in view (Simon: more boats).
+          for (int k = 0; k < 7; k++) {
             float fk = float(k);
-            float row = 0.58 + 0.14 * fk;
-            float dir = k == 1 ? -1.0 : 1.0;
-            float bx = dir * (mod(uTime * (0.32 - 0.06 * fk) + 65.0 + fk * 61.0, 150.0) - 75.0);
-            float size = 1.25 - 0.4 * row;
+            float row = 0.42 + 0.083 * fk;
+            float dir = mod(fk, 2.0) < 0.5 ? 1.0 : -1.0;
+            float bx = dir * (mod(uTime * (0.3 - 0.025 * fk) + 13.0 + fk * 37.0, 90.0) - 45.0);
+            float size = (1.25 - 0.4 * row) * (0.85 + 0.3 * fract(fk * 0.618));
             vec2 bp = vec2((x - bx) * dir, vP.y - (${BASE.toFixed(2)} + ${SPAN.toFixed(2)} * 0.135 * row));
             float b = boat(bp, size * 1.4);
             float wake = step(abs(bp.y + 0.01), 0.012) * smoothstep(-2.0, -0.15, bp.x) * step(bp.x, -0.15) * step(f, 0.135);

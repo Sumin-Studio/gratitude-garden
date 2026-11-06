@@ -21,3 +21,10 @@ export function readDemo(): Demo | null {
     return null
   }
 }
+
+/** Save demo mode, or remove demo.json when it's all off. */
+export function writeDemo(d: Demo) {
+  const file = join(app.getPath('userData'), 'demo.json')
+  if (!d.replay && !d.seed) fs.rmSync(file, { force: true })
+  else fs.writeFileSync(file, JSON.stringify({ replay: d.replay, seed: d.seed }, null, 2) + '\n')
+}

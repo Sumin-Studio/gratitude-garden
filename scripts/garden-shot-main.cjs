@@ -41,7 +41,7 @@ app.whenReady().then(async () => {
     await wait(100)
   }
   await wait(600)
-  const home = { dist: 16.5, at: [0, 2.1, 1.5] }
+  const home = { dist: 14, at: [-1.6, 2.1, 1.5] }
   for (const [name, shot] of SHOTS) {
     if (ONLY && !ONLY.includes(name)) continue
     await page(`__garden.count(${shot.count ?? 6}); __garden.focus(${shot.focus ?? null}); __garden.view(${JSON.stringify({ ...home, ...shot.view })})`)

@@ -56,7 +56,7 @@ export const tune = {
   ripples: { value: 1 },
   shadows: { value: 2.5 },
   /** 0 off; up to 1, fewer colours, mixed by an ordered dither. */
-  dither: { value: 0.5 },
+  dither: { value: 1 },
   /** Size of a dither pixel, in screen points. */
   pixel: { value: 0.75 },
   /** The camera, in degrees: turned round the garden, tilted down, and the

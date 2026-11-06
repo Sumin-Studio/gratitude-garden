@@ -714,3 +714,41 @@ canvas.is-panning {
     transition: opacity 200ms ease;
   }
 }
+
+/* The timelapse's day counter, in the loader's monospace, above the pill. */
+.lapse {
+  position: fixed;
+  left: 50%;
+  bottom: 72px;
+  z-index: 20;
+  margin: 0;
+  transform: translateX(-50%);
+  font: 500 13px/16px ui-monospace, 'SF Mono', Menlo, monospace;
+  letter-spacing: 0.5px;
+  color: #2f5a42;
+  text-shadow: 0 0 6px rgb(255 255 255 / 0.9);
+  pointer-events: none;
+}
+
+.lapse span {
+  color: rgb(47 90 66 / 0.55);
+}
+
+.tune-lapse {
+  margin-top: 2px;
+}
+
+.tune-group .tune-toggle {
+  margin: 4px 0;
+}
+
+.tune-sub {
+  margin-top: 12px !important;
+}
+
+.tune-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}

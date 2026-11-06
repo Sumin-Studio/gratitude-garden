@@ -819,16 +819,37 @@ export function Planted({
     flowers.forEach((f, i) => {
       const g = growing.get(f.id) ?? f.growth ?? 1
       if (g >= 1 && !shown.has(f.id)) return
-      if (shown.get(f.id) === g) return
+      const was = shown.get(f.id)
+      if (was === g) return
       shown.set(f.id, g)
+      // Below 0: not planted yet (the timelapse), so not there at all, pads too.
+      const away = g < 0
+      if ((was !== undefined && was < 0) !== away) {
+        if (isLotus(i)) {
+          for (let k = 0; k < PADS_EACH; k++) pads?.setMatrixAt(i * PADS_EACH + k, away ? HIDDEN : padMatrix(spots[i], i, k))
+          if (pads) pads.instanceMatrix.needsUpdate = true
+          marks?.setMatrixAt(i, away ? HIDDEN : markMatrix(spots[i]))
+          if (marks) marks.instanceMatrix.needsUpdate = true
+        } else if (spots[i].land) {
+          // Its shade on the grass and the tuft at its foot come with it.
+          shade?.setMatrixAt(i, away ? HIDDEN : groundShadeMatrix(spots[i]))
+          if (shade) shade.instanceMatrix.needsUpdate = true
+          if (tufts) {
+            if (away) for (let k = 0; k < TUFT; k++) tufts.mesh.setMatrixAt(i * TUFT + k, HIDDEN)
+            else setTuft(tufts.mesh, tufts.hills, i, spots[i])
+            tufts.mesh.instanceMatrix.needsUpdate = true
+            tufts.mesh.geometry.getAttribute('aHill').needsUpdate = true
+          }
+        }
+      }
       const c = character(f.id)
       for (const { kind, mesh, looks, idx } of meshes) {
         if (kind !== f.flower) continue
         const j = idx.indexOf(i)
-        mesh.setMatrixAt(j, grownMatrix(i, g))
+        mesh.setMatrixAt(j, away ? HIDDEN : grownMatrix(i, g))
         mesh.instanceMatrix.needsUpdate = true
         const closed = kind === 'lotus' ? c.closed : c.closed * 0.7
-        looks.setX(j, Math.max(closed, budAt(g)))
+        looks.setX(j, Math.max(closed, budAt(Math.max(0, g))))
         looks.needsUpdate = true
       }
     })

@@ -4,7 +4,9 @@ A gratitude diary that lives in your Mac's menu bar and grows a garden.
 
 1. **Write down what was good today.** Click the menu-bar icon and a page drops down: type from the top, add photos and place them anywhere like prints in a scrapbook.
 2. **Submit** and that day's flower grows to full bloom, then it's planted in your garden. The more you put on the page, the bigger it grows. Day one is always a lotus; after that each seed is drawn by rarity (lotuses rarest, ground flowers commonest).
-3. **The garden** is a watercolour 3D garden with a koi pond. Each flower keeps the page that grew it: click one to see it. Two fingers on the trackpad move round, pinch zooms. The pill at the bottom has the settings, including sliders for the glass.
+3. **Submit takes you to the garden**: it opens close on the new flower, plays its bloom, then eases out to the whole garden.
+4. **The garden** is a watercolour 3D garden with a koi pond. Flowers of a kind gather in groups; daisies and baby blue eyes spread over the lawn like a meadow. Each flower keeps the page that grew it: click one to see it. Two fingers on the trackpad move round, pinch zooms.
+5. **Settings** (the pill at the bottom → Fine tune): the look of the garden, the glass, a **timelapse** that regrows every flower in planting order in a minute, and **demo controls**.
 
 > The app's window title and bundle are still called "Sip Flower" (its working name).
 
@@ -39,13 +41,14 @@ The browser version keeps a pretend diary in the tab's own storage.
 
 ## Demo mode (for recording)
 
-Put a `demo.json` in the app's folder above:
+In the garden: settings → Fine tune → Demo.
 
-```json
-{ "replay": true, "seed": "lotus" }
-```
+- **Replay today**: opening the pad after a Submit puts today back as it was, so a take can be repeated.
+- **Lotus every time**: today's seed is always a lotus.
+- **Reset today**: today back as before Submit, now.
+- **Day 1** / **100 days**: a brand-new garden, or a 100-day diary (needs a `demo-100.json` in the app's folder).
 
-Today's seed is then always a lotus, and opening the pad after a Submit puts today back as it was, so a take can be repeated. Delete the file to go back to normal. `scripts/demo-diary.mts` builds a pretend diary from a list of days and photos (see the top of the file).
+The switches are saved as `demo.json` in the app's folder. `scripts/demo-diary.mts` builds a pretend diary (and its `demo-100.json`) from a list of days and photos you supply: see the top of the file.
 
 ## Develop
 

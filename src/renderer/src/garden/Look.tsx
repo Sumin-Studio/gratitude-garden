@@ -16,8 +16,10 @@ const rad = THREE.MathUtils.degToRad
 export const HOME = {
   yaw: 0,
   pitch: Math.atan2(2.2 - 0.92, 7),
-  dist: 16.5,
-  at: new THREE.Vector3(0, 2.1, 1.5)
+  // A little closer than it was (16.5; Simon: "zoomed out a bit too much").
+  dist: 14,
+  // A little left, so the maple's trunk is in frame (Simon's view).
+  at: new THREE.Vector3(-1.6, 2.1, 1.5)
 }
 const ZOOM: [number, number] = [7, 20]
 const LENS = 44
@@ -30,6 +32,8 @@ const ROAM = { x: [-12, 12], z: [-8, 9] } as const
 const FOCUS_DIST = 8
 /** Visit the garden's close-up on the bloom: how near, per unit of the
  * plant's scale, and how high up it the camera aims (the bloom opens there). */
+/** The garden window's own shape: home is framed for it. */
+const FRAME_ASPECT = 900 / 650
 const CLOSE_DIST = 3.4
 /** How long a visit's way back out to the whole garden takes. */
 const ZOOM_OUT_MS = 3600
@@ -360,7 +364,10 @@ export function Look({ spots, focus, onFocus, anchor, onMove, onPlace, onAnchor,
       }
     }
     // A narrower lens backs off to frame the same.
-    const dist = (n.dist * Math.tan(rad(LENS) / 2)) / Math.tan(rad(camera.fov) / 2)
+    // A window taller than the garden's own (900 x 650) backs off, so the
+    // same width of garden stays in frame and the maple doesn't drop out.
+    const wide = Math.max(1, FRAME_ASPECT / (size.width / Math.max(1, size.height)))
+    const dist = (n.dist * wide * Math.tan(rad(LENS) / 2)) / Math.tan(rad(camera.fov) / 2)
     const flat = Math.cos(n.pitch) * dist
     camera.position.set(n.at.x + Math.sin(n.yaw) * flat, n.at.y + Math.sin(n.pitch) * dist, n.at.z + Math.cos(n.yaw) * flat)
     camera.lookAt(n.at)

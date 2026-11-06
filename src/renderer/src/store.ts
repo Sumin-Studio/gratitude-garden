@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import type { CapturePose, SipBridge } from '../../shared/bridge'
-import {
+import { reopenToday,
   addEntry,
   gardenView,
   normalize,
@@ -83,6 +83,10 @@ function mockBridge(): SipBridge {
     onPadHidden: () => noop,
     openGarden: () => window.open('/garden.html', 'sip-garden', 'width=900,height=650'),
     pinPad: noop,
+    getDemo: async () => ({ replay: false, lotus: false }),
+    setDemo: noop,
+    resetToday: () => commit(reopenToday(diary)),
+    demoScene: noop,
     visitGarden: () => {
       const v = visitFor(diary)
       window.open(`/garden.html${v ? `?visit=${v.id},${v.from},${v.to}` : ''}`, 'sip-garden', 'width=900,height=650')

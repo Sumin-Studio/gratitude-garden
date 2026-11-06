@@ -159,7 +159,8 @@ export const plantId = (plantedAt: number) => `p${plantedAt.toString(36)}`
 
 /** How often each kind comes up as the next seed (Simon, 2026-11-06): the
  * pond's lotus rarest, then the colourful (the coral chrysanthemum), then the
- * blues and purples, then the whites, and the ground flowers commonest. */
+ * blues and purples, then the whites, and the ground flowers commonest (about
+ * half of all seeds). */
 export const RARITY: Record<FlowerId, number> = {
   lotus: 2,
   chrysanthemum: 4,
@@ -168,8 +169,8 @@ export const RARITY: Record<FlowerId, number> = {
   lily: 9,
   jasmine: 9,
   shrub: 9,
-  daisy: 14,
-  nemophila: 14
+  daisy: 20,
+  nemophila: 18
 }
 const RARITY_SUM = FLOWER_IDS.reduce((n, k) => n + RARITY[k], 0)
 

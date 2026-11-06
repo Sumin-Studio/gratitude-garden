@@ -142,9 +142,9 @@ export function loadTune() {
 }
 
 /** Defaults Simon changed later: a saved value still at an old default
- * takes the new one (pixel 1 → 0.75, grass 1.3 → 1.2, dither 1 → 0.5,
- * 2026-11-06). */
-const RETUNED: Partial<Record<Dial, number[]>> = { pixel: [1], grassBright: [1.3], dither: [1] }
+ * takes the new one (pixel 1 → 0.75, grass 1.3 → 1.2, 2026-11-06; dither
+ * went to 0.5 for an hour and back to 1). */
+const RETUNED: Partial<Record<Dial, number[]>> = { pixel: [1], grassBright: [1.3], dither: [0.5] }
 
 function load(): Record<Dial, number> {
   try {
@@ -232,6 +232,16 @@ export function Tune({ initialOpen = false }: { initialOpen?: boolean } = {}) {
     }
   }, [pinned])
   const [copied, setCopied] = useState(false)
+  // Demo mode (the app's demo.json): replay today after a Submit, a lotus
+  // every time, and a reset for another take.
+  const [demo, setDemoState] = useState({ replay: false, lotus: false })
+  useEffect(() => {
+    void window.sip?.getDemo().then(setDemoState)
+  }, [])
+  const setDemo = (d: { replay: boolean; lotus: boolean }) => {
+    setDemoState(d)
+    window.sip?.setDemo(d)
+  }
   const set = (next: Record<Dial, number>) => {
     setValues(next)
     apply(next)
@@ -310,8 +320,34 @@ export function Tune({ initialOpen = false }: { initialOpen?: boolean } = {}) {
                 ))}
               </div>
             ))}
+            <div className="tune-group" style={{ '--i': GROUPS.length } as React.CSSProperties}>
+              <h3>Demo</h3>
+              <Toggle label="Replay today" on={demo.replay} onChange={(replay) => setDemo({ ...demo, replay })} />
+              <Toggle label="Lotus every time" on={demo.lotus} onChange={(lotus) => setDemo({ ...demo, lotus })} />
+              <div className="tune-chips">
+                <button className="tune-chip" onClick={() => window.sip?.resetToday()}>
+                  Reset today
+                </button>
+                <button className="tune-chip" onClick={() => window.sip?.demoScene('day1')}>
+                  Day 1
+                </button>
+                <button className="tune-chip" onClick={() => window.sip?.demoScene('days100')}>
+                  100 days
+                </button>
+              </div>
+              <h3 className="tune-sub">Timelapse</h3>
+              <button
+                className="tune-chip tune-lapse"
+                onClick={() => {
+                  toggle(false)
+                  window.dispatchEvent(new Event('sip-timelapse'))
+                }}
+              >
+                Play every day, 1 min
+              </button>
+            </div>
             {GLASS_GROUPS.map((g, i) => (
-              <div className="tune-group" key={g.title} style={{ '--i': GROUPS.length + i } as React.CSSProperties}>
+              <div className="tune-group" key={g.title} style={{ '--i': GROUPS.length + 1 + i } as React.CSSProperties}>
                 <h3>{g.title}</h3>
                 {i === 0 && (
                   <div className="tune-glass-tools">

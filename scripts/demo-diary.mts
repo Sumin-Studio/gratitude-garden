@@ -6,13 +6,14 @@
 // (shared/diary.ts): the words at the top, the photos as prints (copied and
 // resized into the folder's media; the originals are only read), and each
 // day's flower the planned kind (the evening's submit time is picked so the
-// next seed draws it). Today is left empty. Writes state.json, media/ and a
-// demo.json (replay on, lotus seeds: src/main/demo.ts).
+// next seed draws it). Today is left empty. Writes state.json, a copy as
+// demo-100.json (the Demo controls' "100 days"), media/ and a demo.json
+// (replay on, lotus seeds: src/main/demo.ts).
 import { execFileSync } from 'node:child_process'
 import fs from 'node:fs'
 import { join } from 'node:path'
 // @ts-expect-error: node runs the model's .ts directly (type stripping); tsc doesn't allow the extension.
-import { initialState, plantId, rollDay, seedKind, setToday, submitDay, type FlowerId, type Item } from '../src/shared/diary.ts'
+import { initialState, plantId, rollDay, seedAs, seedKind, setToday, submitDay, type FlowerId, type Item } from '../src/shared/diary.ts'
 
 const [specPath, out] = process.argv.slice(2)
 if (!specPath || !out) throw new Error('usage: node scripts/demo-diary.mts <spec.json> <userData dir>')
@@ -88,7 +89,8 @@ const DAY = 86_400_000
 const [y, m, dd] = spec.end.split('-').map(Number)
 const last = new Date(y, m - 1, dd).getTime()
 const first = last - (spec.days.length - 1) * DAY
-let s = initialState(when(first + 7 * 3_600_000, kinds[0]))
+// A new diary's first seed is always a lotus; the plan's first kind wins here.
+let s = seedAs(initialState(when(first + 7 * 3_600_000, kinds[0])), kinds[0])
 spec.days.forEach((d, i) => {
   const morning = first + i * DAY + 8 * 3_600_000 + Math.floor(rnd() * 3_600_000)
   s = rollDay(s, morning)
@@ -100,6 +102,8 @@ spec.days.forEach((d, i) => {
 s = rollDay(s, Date.now())
 
 fs.writeFileSync(join(out, 'state.json'), JSON.stringify(s, null, 2))
+// The same diary kept aside, for the garden's Demo → "100 days" (main: sip:demo-scene).
+fs.writeFileSync(join(out, 'demo-100.json'), JSON.stringify(s, null, 2))
 fs.writeFileSync(join(out, 'demo.json'), JSON.stringify({ replay: true, seed: 'lotus' }, null, 2) + '\n')
 const tally: Record<string, number> = {}
 for (const f of s.garden) tally[f.flower] = (tally[f.flower] ?? 0) + 1

@@ -6,7 +6,7 @@ import { bridge } from '../store'
 import { Garden } from './Garden'
 import { growing } from './Planted'
 import type { Visit } from '../../../shared/diary'
-import type { Looker } from './Look'
+import { view, type Looker } from './Look'
 import { FULL, mockFlowers } from './mock'
 import { loadTune, Tune } from './Tune'
 import { tune } from './paint'
@@ -98,6 +98,63 @@ function App() {
     const t = window.setTimeout(() => setRevealed(true), 120)
     return () => window.clearTimeout(t)
   }, [revealed, isReady, asked, visit, placed])
+
+  // The timelapse (Fine tune → Timelapse): the garden cleared, then every
+  // flower grows back in the order it was planted, all in a minute, from the
+  // home view, a day counter at the bottom; each plant's shade on the grass
+  // comes with it. After it, the garden as it was.
+  const [lapse, setLapse] = useState<{ day: number; of: number } | null>(null)
+  useEffect(() => {
+    let raf = 0
+    const go = () => {
+      cancelAnimationFrame(raf)
+      const list = [...flowersRef.current]
+      if (!list.length) return
+      setFocus(null)
+      view.home()
+      const TOTAL = 60_000
+      const GROW = 2000
+      const shade = (ids: Set<string> | null) => window.dispatchEvent(new CustomEvent('sip-lapse-shade', { detail: ids }))
+      shade(new Set())
+      let shaded = 0
+      const step = (TOTAL - GROW) / list.length
+      for (const f of list) growing.set(f.id, -1)
+      const t0 = performance.now()
+      let shownDay = -1
+      const tick = () => {
+        const t = performance.now() - t0
+        let day = 0
+        list.forEach((f, i) => {
+          const k = (t - i * step) / GROW
+          if (k < 0) return
+          day = i + 1
+          const e = k >= 1 ? 1 : k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2
+          growing.set(f.id, e)
+        })
+        if (day !== shownDay) {
+          shownDay = day
+          setLapse({ day, of: list.length })
+        }
+        // The lawn's shade, repainted every eight days (a repaint costs a frame).
+        if (day - shaded >= 8) {
+          shaded = day
+          shade(new Set(list.slice(0, day).map((f) => f.id)))
+        }
+        if (t < TOTAL) raf = requestAnimationFrame(tick)
+        else {
+          shade(null)
+          for (const f of list) growing.delete(f.id)
+          window.setTimeout(() => setLapse(null), 1200)
+        }
+      }
+      tick()
+    }
+    window.addEventListener('sip-timelapse', go)
+    return () => {
+      window.removeEventListener('sip-timelapse', go)
+      cancelAnimationFrame(raf)
+    }
+  }, [])
 
   const played = useRef<Visit | null>(null)
   const flowersRef = useRef(flowers)
@@ -232,6 +289,11 @@ function App() {
       <div className="garden-drag" aria-hidden="true" />
       {loaded && flowers.length === 0 && <Empty />}
       <Loader shown={!revealed} />
+      {lapse && (
+        <p className="lapse" aria-live="polite">
+          day {lapse.day} <span>/ {lapse.of}</span>
+        </p>
+      )}
       {(!CAPTURE || TUNE !== null) && <Tune initialOpen={TUNE === 'open'} />}
       <Garden
       flowers={flowers}

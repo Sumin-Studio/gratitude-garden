@@ -47,6 +47,14 @@ export type SipBridge = {
   visitGarden(): void
   /** Keep the pad open beside the garden (tuning the glass), or let it go. */
   pinPad(on: boolean): void
+  /** Demo mode (main/demo.ts): read it, set it (saved in demo.json), and put
+   * today back as it was before Submit. */
+  getDemo(): Promise<{ replay: boolean; lotus: boolean }>
+  setDemo(d: { replay: boolean; lotus: boolean }): void
+  resetToday(): void
+  /** Demo scenes: a brand-new garden (day 1), or the 100-day demo diary
+   * (demo-100.json in the app's folder, from scripts/demo-diary.mts). */
+  demoScene(scene: 'day1' | 'days100'): void
   /** Garden only: a visit to play (on load, ask for one waiting). */
   takeVisit(): Promise<Visit | null>
   onVisit(cb: (v: Visit) => void): () => void
